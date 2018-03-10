@@ -54,6 +54,22 @@ void PhysicsComponent::setSize(double w, double h)
     this->h = h;
 }
 
+int PhysicsComponent::getX() {
+	return x;
+}
+
+int PhysicsComponent::getY() {
+	return y;
+}
+
+int PhysicsComponent::getWidth() {
+	return w;
+}
+
+int PhysicsComponent::getHeight() {
+	return h;
+}
+
 
 
 

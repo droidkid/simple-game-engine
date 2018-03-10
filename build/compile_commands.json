@@ -19,6 +19,12 @@
 
 {
   "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o -c /home/chesetti/projects/breakout/src/game_object/graphics_component.cpp",
+  "file": "/home/chesetti/projects/breakout/src/game_object/graphics_component.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
   "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/game_object/physics_component.cpp.o -c /home/chesetti/projects/breakout/src/game_object/physics_component.cpp",
   "file": "/home/chesetti/projects/breakout/src/game_object/physics_component.cpp"
 },
@@ -27,6 +33,12 @@
   "directory": "/home/chesetti/projects/breakout/build",
   "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o -c /home/chesetti/projects/breakout/src/input/input_poller.cpp",
   "file": "/home/chesetti/projects/breakout/src/input/input_poller.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o -c /home/chesetti/projects/breakout/src/resources/resources.cpp",
+  "file": "/home/chesetti/projects/breakout/src/resources/resources.cpp"
 },
 
 {

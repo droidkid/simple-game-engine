@@ -70,9 +70,9 @@ build CMakeFiles/breakout.dir/main.cpp.o: CXX_COMPILER__breakout ../main.cpp || 
 #############################################
 # Link the executable breakout
 
-build breakout: CXX_EXECUTABLE_LINKER__breakout CMakeFiles/breakout.dir/main.cpp.o | libbreakout_lib.a /usr/lib/libSDL_image.so /usr/lib/libSDL_ttf.so || libbreakout_lib.a
+build breakout: CXX_EXECUTABLE_LINKER__breakout CMakeFiles/breakout.dir/main.cpp.o | libbreakout_lib.a /usr/lib/libSDL2main.a /usr/lib/libSDL2.so /usr/lib/libSDL2_image.so /usr/lib/libSDL2_ttf.so || libbreakout_lib.a
   LINK_FLAGS = -rdynamic
-  LINK_LIBRARIES = libbreakout_lib.a -L/usr/lib  -lSDL2 -lSDL_image -lSDL_ttf
+  LINK_LIBRARIES = libbreakout_lib.a -Wl,-Bstatic -lSDL2main -Wl,-Bdynamic -lSDL2 -lpthread -lSDL2_image -lSDL2_ttf
   OBJECT_DIR = CMakeFiles/breakout.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -106,6 +106,11 @@ build CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o: CXX_COMPILER__brea
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/engine
+build CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o: CXX_COMPILER__breakout_lib ../src/game_object/graphics_component.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o.d
+  INCLUDES = -I/usr/include/SDL2 -I../include
+  OBJECT_DIR = CMakeFiles/breakout_lib.dir
+  OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/game_object
 build CMakeFiles/breakout_lib.dir/src/game_object/physics_component.cpp.o: CXX_COMPILER__breakout_lib ../src/game_object/physics_component.cpp || cmake_object_order_depends_target_breakout_lib
   DEP_FILE = CMakeFiles/breakout_lib.dir/src/game_object/physics_component.cpp.o.d
   INCLUDES = -I/usr/include/SDL2 -I../include
@@ -116,6 +121,11 @@ build CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o: CXX_COMPILER__br
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/input
+build CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o: CXX_COMPILER__breakout_lib ../src/resources/resources.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o.d
+  INCLUDES = -I/usr/include/SDL2 -I../include
+  OBJECT_DIR = CMakeFiles/breakout_lib.dir
+  OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/resources
 build CMakeFiles/breakout_lib.dir/src/scenes/dummy_scene.cpp.o: CXX_COMPILER__breakout_lib ../src/scenes/dummy_scene.cpp || cmake_object_order_depends_target_breakout_lib
   DEP_FILE = CMakeFiles/breakout_lib.dir/src/scenes/dummy_scene.cpp.o.d
   INCLUDES = -I/usr/include/SDL2 -I../include
@@ -139,7 +149,7 @@ build CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o: CXX_COMPILER__breakout
 #############################################
 # Link the static library libbreakout_lib.a
 
-build libbreakout_lib.a: CXX_STATIC_LIBRARY_LINKER__breakout_lib CMakeFiles/breakout_lib.dir/src/game.cpp.o CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/physics_component.cpp.o CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o CMakeFiles/breakout_lib.dir/src/scenes/dummy_scene.cpp.o CMakeFiles/breakout_lib.dir/src/sdl/sdl_system.cpp.o CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o
+build libbreakout_lib.a: CXX_STATIC_LIBRARY_LINKER__breakout_lib CMakeFiles/breakout_lib.dir/src/game.cpp.o CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/physics_component.cpp.o CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o CMakeFiles/breakout_lib.dir/src/scenes/dummy_scene.cpp.o CMakeFiles/breakout_lib.dir/src/sdl/sdl_system.cpp.o CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -200,13 +210,13 @@ default all
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /usr/lib64/cmake/SDL2/sdl2-config.cmake /usr/share/cmake-3.10/Modules/CMakeCInformation.cmake /usr/share/cmake-3.10/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.10/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU.cmake /usr/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.10/Modules/FindPackageMessage.cmake /usr/share/cmake-3.10/Modules/FindSDL_image.cmake /usr/share/cmake-3.10/Modules/FindSDL_ttf.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.10/Modules/Platform/Linux.cmake /usr/share/cmake-3.10/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../cmake/FindSDL2.cmake ../cmake/FindSDL2_image.cmake ../cmake/FindSDL2_ttf.cmake /usr/share/cmake-3.10/Modules/CMakeCInformation.cmake /usr/share/cmake-3.10/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.10/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.10/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.10/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.10/Modules/CheckSymbolExists.cmake /usr/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU.cmake /usr/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.10/Modules/FindPackageMessage.cmake /usr/share/cmake-3.10/Modules/FindThreads.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.10/Modules/Platform/Linux.cmake /usr/share/cmake-3.10/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake
   pool = console
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt /usr/lib64/cmake/SDL2/sdl2-config.cmake /usr/share/cmake-3.10/Modules/CMakeCInformation.cmake /usr/share/cmake-3.10/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.10/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU.cmake /usr/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.10/Modules/FindPackageMessage.cmake /usr/share/cmake-3.10/Modules/FindSDL_image.cmake /usr/share/cmake-3.10/Modules/FindSDL_ttf.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.10/Modules/Platform/Linux.cmake /usr/share/cmake-3.10/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../cmake/FindSDL2.cmake ../cmake/FindSDL2_image.cmake ../cmake/FindSDL2_ttf.cmake /usr/share/cmake-3.10/Modules/CMakeCInformation.cmake /usr/share/cmake-3.10/Modules/CMakeCXXInformation.cmake /usr/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake /usr/share/cmake-3.10/Modules/CMakeGenericSystem.cmake /usr/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake /usr/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake /usr/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake /usr/share/cmake-3.10/Modules/CheckIncludeFile.cmake /usr/share/cmake-3.10/Modules/CheckLibraryExists.cmake /usr/share/cmake-3.10/Modules/CheckSymbolExists.cmake /usr/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU-C.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU-CXX.cmake /usr/share/cmake-3.10/Modules/Compiler/GNU.cmake /usr/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake /usr/share/cmake-3.10/Modules/FindPackageMessage.cmake /usr/share/cmake-3.10/Modules/FindThreads.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU-C.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU-CXX.cmake /usr/share/cmake-3.10/Modules/Platform/Linux-GNU.cmake /usr/share/cmake-3.10/Modules/Platform/Linux.cmake /usr/share/cmake-3.10/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.10.2/CMakeCCompiler.cmake CMakeFiles/3.10.2/CMakeCXXCompiler.cmake CMakeFiles/3.10.2/CMakeSystem.cmake: phony
 
 #############################################
 # Clean all the built files.

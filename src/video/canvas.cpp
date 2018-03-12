@@ -30,3 +30,7 @@ void Canvas::drawText(char *text, int x, int y, TTF_Font *font, SDL_Color textCo
 	SDL_DestroyTexture(texture);
 
 }
+
+void Canvas::drawTexture(SDL_Texture *texture, SDL_Rect *boundingBox) {
+	SDL_RenderCopy(renderer, texture, NULL, boundingBox);
+}

@@ -2,9 +2,6 @@
 
 // Holds texture and does drawing of sprite.
 
-GraphicsComponent::GraphicsComponent(PhysicsComponent *physics) {
-	this->physicsComponent = physics;
-}
 
 void GraphicsComponent::setTexture(SDL_Texture *texture) {
 	this->texture = texture;

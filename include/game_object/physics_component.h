@@ -6,6 +6,7 @@ class PhysicsComponent {
     
 public:
     PhysicsComponent();
+    PhysicsComponent(double x, double y, double w, double h) : x(x), y(y), w(w), h(h) {};
     void setX(double x);
     int getX();
     void setY(double y);

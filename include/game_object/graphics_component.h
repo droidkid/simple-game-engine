@@ -11,7 +11,8 @@ class GraphicsComponent {
 	PhysicsComponent *physicsComponent;
 
 public:
-	GraphicsComponent(PhysicsComponent *physics);
+	GraphicsComponent(PhysicsComponent *physics) : physicsComponent(physics) {};
+	GraphicsComponent(PhysicsComponent *physics, SDL_Texture *texture) : physicsComponent(physics), texture(texture) {};
 	void setTexture(SDL_Texture *texture);
 	void draw(double interpolation, Canvas *canvas);
 	~GraphicsComponent();

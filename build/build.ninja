@@ -106,13 +106,18 @@ build CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o: CXX_COMPILER__brea
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/engine
-build CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o: CXX_COMPILER__breakout_lib ../src/game_object/graphics_component.cpp || cmake_object_order_depends_target_breakout_lib
-  DEP_FILE = CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o.d
+build CMakeFiles/breakout_lib.dir/src/game_object/ball.cpp.o: CXX_COMPILER__breakout_lib ../src/game_object/ball.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/game_object/ball.cpp.o.d
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/game_object
-build CMakeFiles/breakout_lib.dir/src/game_object/physics_component.cpp.o: CXX_COMPILER__breakout_lib ../src/game_object/physics_component.cpp || cmake_object_order_depends_target_breakout_lib
-  DEP_FILE = CMakeFiles/breakout_lib.dir/src/game_object/physics_component.cpp.o.d
+build CMakeFiles/breakout_lib.dir/src/game_object/game_object_factory.cpp.o: CXX_COMPILER__breakout_lib ../src/game_object/game_object_factory.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/game_object/game_object_factory.cpp.o.d
+  INCLUDES = -I/usr/include/SDL2 -I../include
+  OBJECT_DIR = CMakeFiles/breakout_lib.dir
+  OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/game_object
+build CMakeFiles/breakout_lib.dir/src/game_object/simple_graphics_component.cpp.o: CXX_COMPILER__breakout_lib ../src/game_object/simple_graphics_component.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/game_object/simple_graphics_component.cpp.o.d
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/game_object
@@ -126,8 +131,8 @@ build CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o: CXX_COMPILER__b
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/resources
-build CMakeFiles/breakout_lib.dir/src/scenes/dummy_scene.cpp.o: CXX_COMPILER__breakout_lib ../src/scenes/dummy_scene.cpp || cmake_object_order_depends_target_breakout_lib
-  DEP_FILE = CMakeFiles/breakout_lib.dir/src/scenes/dummy_scene.cpp.o.d
+build CMakeFiles/breakout_lib.dir/src/scenes/breakout_scene.cpp.o: CXX_COMPILER__breakout_lib ../src/scenes/breakout_scene.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/scenes/breakout_scene.cpp.o.d
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/scenes
@@ -149,7 +154,7 @@ build CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o: CXX_COMPILER__breakout
 #############################################
 # Link the static library libbreakout_lib.a
 
-build libbreakout_lib.a: CXX_STATIC_LIBRARY_LINKER__breakout_lib CMakeFiles/breakout_lib.dir/src/game.cpp.o CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/physics_component.cpp.o CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o CMakeFiles/breakout_lib.dir/src/scenes/dummy_scene.cpp.o CMakeFiles/breakout_lib.dir/src/sdl/sdl_system.cpp.o CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o
+build libbreakout_lib.a: CXX_STATIC_LIBRARY_LINKER__breakout_lib CMakeFiles/breakout_lib.dir/src/game.cpp.o CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/ball.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/game_object_factory.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/simple_graphics_component.cpp.o CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o CMakeFiles/breakout_lib.dir/src/scenes/breakout_scene.cpp.o CMakeFiles/breakout_lib.dir/src/sdl/sdl_system.cpp.o CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   POST_BUILD = :
   PRE_LINK = :

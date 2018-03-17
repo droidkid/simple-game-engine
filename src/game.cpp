@@ -1,6 +1,6 @@
 #include "game.h"
 
-#include "scenes/dummy_scene.cpp"
+#include "scenes/breakout_scene.cpp"
 
 Game::Game() {
     sdl_system = new SDLSystem();
@@ -11,7 +11,7 @@ Game::Game() {
 }
 
 int Game::run ( int argc, char **argv ) {
-    Scene *scene = new DummyScene(resources);
+    Scene *scene = new BreakoutScene(resources);
     game_loop->runLoop(scene);
     return 0;
 }

@@ -10,4 +10,11 @@ class GameObject {
 public:
     GameObject ( PhysicsComponent *physics, GraphicsComponent *graphics )
         : physics ( physics ), graphics ( graphics ) {}
+    void update() {
+        physics -> update();
+    }
+    
+    void draw(Canvas *canvas) {
+        graphics -> draw(canvas);
+    }
 };

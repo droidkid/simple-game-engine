@@ -13,26 +13,32 @@
 
 {
   "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/breakout/ball.cpp.o -c /home/chesetti/projects/breakout/src/breakout/ball.cpp",
+  "file": "/home/chesetti/projects/breakout/src/breakout/ball.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/breakout/breakout_scene.cpp.o -c /home/chesetti/projects/breakout/src/breakout/breakout_scene.cpp",
+  "file": "/home/chesetti/projects/breakout/src/breakout/breakout_scene.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/breakout/game_object_factory.cpp.o -c /home/chesetti/projects/breakout/src/breakout/game_object_factory.cpp",
+  "file": "/home/chesetti/projects/breakout/src/breakout/game_object_factory.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
   "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o -c /home/chesetti/projects/breakout/src/engine/game_loop.cpp",
   "file": "/home/chesetti/projects/breakout/src/engine/game_loop.cpp"
 },
 
 {
   "directory": "/home/chesetti/projects/breakout/build",
-  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/game_object/ball.cpp.o -c /home/chesetti/projects/breakout/src/game_object/ball.cpp",
-  "file": "/home/chesetti/projects/breakout/src/game_object/ball.cpp"
-},
-
-{
-  "directory": "/home/chesetti/projects/breakout/build",
-  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/game_object/game_object_factory.cpp.o -c /home/chesetti/projects/breakout/src/game_object/game_object_factory.cpp",
-  "file": "/home/chesetti/projects/breakout/src/game_object/game_object_factory.cpp"
-},
-
-{
-  "directory": "/home/chesetti/projects/breakout/build",
-  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/game_object/simple_graphics_component.cpp.o -c /home/chesetti/projects/breakout/src/game_object/simple_graphics_component.cpp",
-  "file": "/home/chesetti/projects/breakout/src/game_object/simple_graphics_component.cpp"
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o -c /home/chesetti/projects/breakout/src/game_object/graphics_component.cpp",
+  "file": "/home/chesetti/projects/breakout/src/game_object/graphics_component.cpp"
 },
 
 {
@@ -43,14 +49,14 @@
 
 {
   "directory": "/home/chesetti/projects/breakout/build",
-  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o -c /home/chesetti/projects/breakout/src/resources/resources.cpp",
-  "file": "/home/chesetti/projects/breakout/src/resources/resources.cpp"
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/math/geometry.cpp.o -c /home/chesetti/projects/breakout/src/math/geometry.cpp",
+  "file": "/home/chesetti/projects/breakout/src/math/geometry.cpp"
 },
 
 {
   "directory": "/home/chesetti/projects/breakout/build",
-  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/scenes/breakout_scene.cpp.o -c /home/chesetti/projects/breakout/src/scenes/breakout_scene.cpp",
-  "file": "/home/chesetti/projects/breakout/src/scenes/breakout_scene.cpp"
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o -c /home/chesetti/projects/breakout/src/resources/resources.cpp",
+  "file": "/home/chesetti/projects/breakout/src/resources/resources.cpp"
 },
 
 {

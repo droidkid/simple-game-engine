@@ -1,7 +1,7 @@
 #include "engine/scene.h"
 #include "resources/resources.h"
 #include "game_object/game_object.h"
-#include "game_object/game_object_factory.h"
+#include "breakout/game_object_factory.h"
 
 class BreakoutScene : public Scene {
 

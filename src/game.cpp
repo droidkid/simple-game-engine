@@ -1,6 +1,6 @@
 #include "game.h"
 
-#include "scenes/breakout_scene.cpp"
+#include "breakout/breakout_scene.cpp"
 
 Game::Game() {
     sdl_system = new SDLSystem();

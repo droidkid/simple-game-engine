@@ -7,7 +7,7 @@
 class GraphicsComponent {
 
 public:
-	virtual void draw(Canvas *canvas) {};
+    virtual void draw ( Canvas *canvas ) {};
 };
 
 
@@ -16,7 +16,7 @@ class SimpleGraphicsComponent : public GraphicsComponent {
     SDL_Rect boundingBox;
     SDL_Texture *texture;
 public:
-    void setPhysics ( PhysicsComponent *physics ); 
+    void setPhysics ( PhysicsComponent *physics );
     void setTexture ( SDL_Texture *texture );
-    void draw(Canvas *canvas);
+    void draw ( Canvas *canvas );
 };

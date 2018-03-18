@@ -1,7 +1,7 @@
-#include "game_object/game_object_factory.h"
+#include "breakout/game_object_factory.h"
 
 GameObject* createBall ( int x, int y, Resources *resources ) {
-    BallPhysics *physics = new BallPhysics ( x, y, 30, 30 );
+    BallPhysics *physics = new BallPhysics ( Rect(x, y, 30, 30) , Vec2d(2, 3));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( resources -> blueBallTexture );

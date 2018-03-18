@@ -1,11 +1,12 @@
 #pragma once
 
-#include "physics_component.h"
-#include "graphics_component.h"
+#include "game_object/physics_component.h"
+#include "game_object/graphics_component.h"
 
 class BallPhysics : public PhysicsComponent {
 public:
-    BallPhysics ( int x, int y, int w, int h ) : PhysicsComponent ( x,y,w,h ) {}
+    Vec2d velocity;
+    BallPhysics ( Rect rect, Vec2d velocity) : PhysicsComponent ( rect ), velocity( velocity) {}
     void update();
 };
 

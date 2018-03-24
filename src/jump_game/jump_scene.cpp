@@ -12,32 +12,69 @@ class JumpGameScene : public Scene {
 
     Resources *resources;
     Camera *camera;
+    
     GameObject *ball;
-    GameObject *ground;
-    GameObject **tiles;
-    int numTiles;
+    GameObjectFactory *factory;
     
-    PhysicsComponent **physics;
-    
+    int newBrickInterval = 3000;
+
+    int curIdx;
+    GameObject **gameObjects;
+
     void update ( Input *input ) override {
-        ball->update();
-        for (int i=0; i<numTiles; i++) {
-            tiles[i]->update();
-            if(handleBallTileCollision(ball->getPhysics(), tiles[i]->getPhysics())) {
-                cout<<i<<endl;
-            }; 
-                double dist = 300 - ball->getPhysics()->y;
-                camera->panUp(physics, numTiles+1, dist, 10 * MS_PER_UPDATE);
+        newBrickInterval -= MS_PER_UPDATE;
+        if (newBrickInterval < 0) {
+            addGameObject(factory->createTile(ball->getPhysics()->x - 30, ball->getPhysics()->y - 100));
+            addGameObject(factory->createTile(ball->getPhysics()->x - 30, ball->getPhysics()->y + 100));
+            newBrickInterval = 3000;
         }
-        camera->update();
-        handleBallTileCollision(ball->getPhysics(), ground->getPhysics()); 
+        
+        GameObject *curObject;
+        for (int i=0; i<MAX_GAME_OBJECTS; i++) {
+            curObject = gameObjects[i];
+            if (curObject == NULL || curObject->canBeDestroyed()) {
+                continue;
+            }
+            curObject->update(input);
+        }
+        
+        handleCollisions(gameObjects);
+        camera->update(gameObjects);
     };
+
+    void addGameObject ( GameObject *object ) {
+        int tries = MAX_GAME_OBJECTS;
+        GameObject *curObject;
+        
+        while ( tries-- ) {
+            curObject = gameObjects[curIdx];
+            if ( curObject == NULL ) {
+                gameObjects[curIdx++] = object;
+                return;
+
+            } else if ( curObject->canBeDestroyed() ) {
+                // TODO(chesetti): Call curObject destructor
+                gameObjects[curIdx++] = object;
+                return;
+            }
+            curIdx++;
+            if (curIdx >= MAX_GAME_OBJECTS) {
+                curIdx = 0;
+            }
+        }
+        
+        // THROW ERROR HERE.
+    }
 
     void draw ( Canvas *canvas ) override {
         canvas->clearScreen();
-        ball->draw(canvas);
-        for (int i=0; i<numTiles; i++) {
-            tiles[i]->draw(canvas);
+        GameObject *curObject;
+        for (int i=0; i<MAX_GAME_OBJECTS; i++) {
+            curObject = gameObjects[i];
+            if (curObject == NULL || curObject->canBeDestroyed()) {
+                continue;
+            }
+            curObject->draw(canvas);
         }
         canvas->renderScreen();
     };
@@ -46,22 +83,19 @@ public:
     JumpGameScene ( Resources *resources ) {
         this->resources = resources;
         this->camera = new Camera();
-        
-        numTiles = 100;
-        tiles = new GameObject*[numTiles];
-        for (int i=0; i<numTiles; i++) {
-            tiles[i] = createTile(400, -i*100 + 800, resources);
+        this->factory = new GameObjectFactory ( resources );
+
+        curIdx = 0;
+        gameObjects = new GameObject*[MAX_GAME_OBJECTS];
+        for (int i=0; i<MAX_GAME_OBJECTS; i++) {
+            gameObjects[i] = NULL;
         }
         
-        ball = createJumpBall(400, 400, 0.5, resources);
-        ground = createTile(0, SCREEN_HEIGHT-10, SCREEN_WIDTH, 30, resources);
-        
-        physics = new PhysicsComponent*[numTiles+1];
-        physics[0] = ball->getPhysics();
-        for (int i=0; i<numTiles; i++) {
-            physics[i+1] = tiles[i]->getPhysics();
-        }
-        
-        //camera->panUp(physics, 2, 100, 1000);
+        ball = factory->createJumpBall(400, 400, 0.7);
+
+        addGameObject(ball);
+        addGameObject(factory->createGround ());
+
+        camera->follow( ball , Rect(SCREEN_WIDTH * 0.5, SCREEN_HEIGHT * 0.50, 0, 0));
     }
 };

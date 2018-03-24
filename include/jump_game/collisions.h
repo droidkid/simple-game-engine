@@ -1,25 +1,36 @@
 #pragma once
 
-#include "jump_game//physics.h"
+#include "game_constants.h"
+#include "game_object/game_object.h"
+#include "jump_game/game_object_types.h"
 #include "math/geometry.h"
-#include "video/camera.h"
 
 #include <iostream>
 using namespace std;
 
-bool handleBallTileCollision(PhysicsComponent *ball, PhysicsComponent *tile) {
-    
-    Rect ballRect = Rect(ball->x, ball->y, ball->w, ball->h);
-    Rect tileRect = Rect(tile->x, tile->y, tile->w, tile->h);
-    
-    double ball_cy = (ballRect.y + ballRect.h);
-    double ball_ry = (tileRect.y + 5);
-    
-    if (isRectIntersect(ballRect, tileRect) && ball_cy < ball_ry) {
-        ball->onCollision(tileRect, Vec2d(0,0));
-        tile->onCollision(ballRect, Vec2d(0,0));
-        return true;
+using namespace GameConstants;
+using namespace GameObjectTypes;
+
+//TODO(chesetti): Abstract this into a class.
+void handleCollisions ( GameObject **gameObjects ) {
+    // TODO(chesetti): Optimize this.
+    for ( int i=0; i < MAX_GAME_OBJECTS; i++ ) {
+        for ( int j=i+1; j < MAX_GAME_OBJECTS; j++ ) {
+            GameObject *obj1 = gameObjects[i];
+            GameObject *obj2 = gameObjects[j];
+            if ( obj1 == NULL || obj1->canBeDestroyed() ) continue;
+            if ( obj2 == NULL || obj2->canBeDestroyed() ) continue;
+
+            Rect r1 = obj1->getPhysics()->getRect();
+            Rect r2 = obj2->getPhysics()->getRect();
+
+            if ( !isRectIntersect ( r1, r2 ) ) {
+                continue;
+            }
+            
+            obj1->getPhysics()->onCollision(r2, Vec2d(0,0) /* Displacement Vector */, obj2->getObjectType());
+            obj2->getPhysics()->onCollision(r1, Vec2d(0,0) /* Displacement Vector */, obj1->getObjectType());
+
+        }
     }
-    return false;
-    
 }

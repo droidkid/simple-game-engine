@@ -3,7 +3,7 @@
 
 using namespace GameConstants;
 
-void BallPhysics::update() {
+void BallPhysics::update(Input *input) {
     if ( x <= 0 && velocity.x < 0 ) {
         velocity.x = -velocity.x;
     }

@@ -5,7 +5,7 @@ GameObject* createBall ( int x, int y, Resources *resources ) {
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( resources -> blueBallTexture );
-    return new GameObject ( physics, graphics );
+    return new GameObject ( 0, physics, graphics );
 }
 
 GameObject * createBrick ( int x, int y, Resources* resources ) {
@@ -13,5 +13,5 @@ GameObject * createBrick ( int x, int y, Resources* resources ) {
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( resources -> brickTextures[RED] );
-    return new GameObject ( physics, graphics );
+    return new GameObject ( 1, physics, graphics );
 }

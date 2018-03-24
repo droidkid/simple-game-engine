@@ -1,26 +1,42 @@
 #include "jump_game/game_object_factory.h"
 #include "jump_game/physics.h"
+#include "jump_game/game_object_types.h"
+#include "game_constants.h"
 
-GameObject* createJumpBall ( int x, int y, double yvel, Resources *resources ) {
-    JumpBallPhysics *physics = new JumpBallPhysics ( Rect(x, y, 30, 30) , Vec2d(0, yvel), Vec2d(0, 0.001));
+using namespace GameObjectTypes;
+using namespace GameConstants;
+
+GameObject* GameObjectFactory::createJumpBall ( int x, int y, double maxYVel) {
+    JumpBallPhysics *physics = new JumpBallPhysics ( Rect(x, y, 30, 30) , Vec2d(0, maxYVel), Vec2d(0, 0.001));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( resources -> blueBallTexture );
-    return new GameObject ( physics, graphics );
+    return new GameObject ( BALL, physics, graphics );
 }
 
-GameObject* createTile ( int x, int y, Resources *resources ) {
+
+GameObject* GameObjectFactory::createTile ( int x, int y) {
     TilePhysics *physics = new TilePhysics (Rect(x, y, 100, 20));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( resources -> brickTextures[RED] );
-    return new GameObject ( physics, graphics );
+    return new GameObject ( TILE, physics, graphics );
 }
 
-GameObject* createTile( int x, int y, int w, int h, Resources *resources) {
+GameObject* GameObjectFactory::createTile( int x, int y, int w, int h) {
     TilePhysics *physics = new TilePhysics (Rect(x, y, w, h));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( resources -> brickTextures[RED] );
-    return new GameObject ( physics, graphics );
+    return new GameObject ( GROUND, physics, graphics );
+}
+
+GameObject* GameObjectFactory::createGround() {
+    TilePhysics *physics = new TilePhysics (Rect(0, SCREEN_HEIGHT-10, SCREEN_WIDTH, 100));
+    SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
+    graphics -> setPhysics ( physics );
+    graphics->setTexture ( resources -> brickTextures[RED] );
+    GameObject *gameObject = new GameObject(GROUND, physics, graphics);
+    gameObject->setShouldNotMoveWithCamera(true);
+    return gameObject;
 }

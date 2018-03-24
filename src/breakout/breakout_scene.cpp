@@ -10,8 +10,8 @@ class BreakoutScene : public Scene {
     GameObject *brick;
 
     void update ( Input *input ) override {
-        ball->update();
-        brick->update();
+        ball->update(input);
+        brick->update(input);
     };
 
     void draw ( Canvas *canvas ) override {

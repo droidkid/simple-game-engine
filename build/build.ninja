@@ -131,6 +131,21 @@ build CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o: CXX_COMPILER__br
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/input
+build CMakeFiles/breakout_lib.dir/src/jump_game/game_object_factory.cpp.o: CXX_COMPILER__breakout_lib ../src/jump_game/game_object_factory.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/jump_game/game_object_factory.cpp.o.d
+  INCLUDES = -I/usr/include/SDL2 -I../include
+  OBJECT_DIR = CMakeFiles/breakout_lib.dir
+  OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/jump_game
+build CMakeFiles/breakout_lib.dir/src/jump_game/jump_scene.cpp.o: CXX_COMPILER__breakout_lib ../src/jump_game/jump_scene.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/jump_game/jump_scene.cpp.o.d
+  INCLUDES = -I/usr/include/SDL2 -I../include
+  OBJECT_DIR = CMakeFiles/breakout_lib.dir
+  OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/jump_game
+build CMakeFiles/breakout_lib.dir/src/jump_game/physics.cpp.o: CXX_COMPILER__breakout_lib ../src/jump_game/physics.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/jump_game/physics.cpp.o.d
+  INCLUDES = -I/usr/include/SDL2 -I../include
+  OBJECT_DIR = CMakeFiles/breakout_lib.dir
+  OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/jump_game
 build CMakeFiles/breakout_lib.dir/src/math/geometry.cpp.o: CXX_COMPILER__breakout_lib ../src/math/geometry.cpp || cmake_object_order_depends_target_breakout_lib
   DEP_FILE = CMakeFiles/breakout_lib.dir/src/math/geometry.cpp.o.d
   INCLUDES = -I/usr/include/SDL2 -I../include
@@ -146,6 +161,11 @@ build CMakeFiles/breakout_lib.dir/src/sdl/sdl_system.cpp.o: CXX_COMPILER__breako
   INCLUDES = -I/usr/include/SDL2 -I../include
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/sdl
+build CMakeFiles/breakout_lib.dir/src/video/camera.cpp.o: CXX_COMPILER__breakout_lib ../src/video/camera.cpp || cmake_object_order_depends_target_breakout_lib
+  DEP_FILE = CMakeFiles/breakout_lib.dir/src/video/camera.cpp.o.d
+  INCLUDES = -I/usr/include/SDL2 -I../include
+  OBJECT_DIR = CMakeFiles/breakout_lib.dir
+  OBJECT_FILE_DIR = CMakeFiles/breakout_lib.dir/src/video
 build CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o: CXX_COMPILER__breakout_lib ../src/video/canvas.cpp || cmake_object_order_depends_target_breakout_lib
   DEP_FILE = CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o.d
   INCLUDES = -I/usr/include/SDL2 -I../include
@@ -159,7 +179,7 @@ build CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o: CXX_COMPILER__breakout
 #############################################
 # Link the static library libbreakout_lib.a
 
-build libbreakout_lib.a: CXX_STATIC_LIBRARY_LINKER__breakout_lib CMakeFiles/breakout_lib.dir/src/game.cpp.o CMakeFiles/breakout_lib.dir/src/breakout/ball.cpp.o CMakeFiles/breakout_lib.dir/src/breakout/breakout_scene.cpp.o CMakeFiles/breakout_lib.dir/src/breakout/game_object_factory.cpp.o CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o CMakeFiles/breakout_lib.dir/src/math/geometry.cpp.o CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o CMakeFiles/breakout_lib.dir/src/sdl/sdl_system.cpp.o CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o
+build libbreakout_lib.a: CXX_STATIC_LIBRARY_LINKER__breakout_lib CMakeFiles/breakout_lib.dir/src/game.cpp.o CMakeFiles/breakout_lib.dir/src/breakout/ball.cpp.o CMakeFiles/breakout_lib.dir/src/breakout/breakout_scene.cpp.o CMakeFiles/breakout_lib.dir/src/breakout/game_object_factory.cpp.o CMakeFiles/breakout_lib.dir/src/engine/game_loop.cpp.o CMakeFiles/breakout_lib.dir/src/game_object/graphics_component.cpp.o CMakeFiles/breakout_lib.dir/src/input/input_poller.cpp.o CMakeFiles/breakout_lib.dir/src/jump_game/game_object_factory.cpp.o CMakeFiles/breakout_lib.dir/src/jump_game/jump_scene.cpp.o CMakeFiles/breakout_lib.dir/src/jump_game/physics.cpp.o CMakeFiles/breakout_lib.dir/src/math/geometry.cpp.o CMakeFiles/breakout_lib.dir/src/resources/resources.cpp.o CMakeFiles/breakout_lib.dir/src/sdl/sdl_system.cpp.o CMakeFiles/breakout_lib.dir/src/video/camera.cpp.o CMakeFiles/breakout_lib.dir/src/video/canvas.cpp.o
   OBJECT_DIR = CMakeFiles/breakout_lib.dir
   POST_BUILD = :
   PRE_LINK = :

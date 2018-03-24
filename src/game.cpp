@@ -1,6 +1,7 @@
 #include "game.h"
 
 #include "breakout/breakout_scene.cpp"
+#include "jump_game/jump_scene.cpp"
 
 Game::Game() {
     sdl_system = new SDLSystem();
@@ -11,7 +12,7 @@ Game::Game() {
 }
 
 int Game::run ( int argc, char **argv ) {
-    Scene *scene = new BreakoutScene(resources);
+    Scene *scene = new JumpGameScene(resources);
     game_loop->runLoop(scene);
     return 0;
 }

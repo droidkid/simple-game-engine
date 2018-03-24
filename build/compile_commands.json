@@ -49,6 +49,24 @@
 
 {
   "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/jump_game/game_object_factory.cpp.o -c /home/chesetti/projects/breakout/src/jump_game/game_object_factory.cpp",
+  "file": "/home/chesetti/projects/breakout/src/jump_game/game_object_factory.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/jump_game/jump_scene.cpp.o -c /home/chesetti/projects/breakout/src/jump_game/jump_scene.cpp",
+  "file": "/home/chesetti/projects/breakout/src/jump_game/jump_scene.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/jump_game/physics.cpp.o -c /home/chesetti/projects/breakout/src/jump_game/physics.cpp",
+  "file": "/home/chesetti/projects/breakout/src/jump_game/physics.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
   "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/math/geometry.cpp.o -c /home/chesetti/projects/breakout/src/math/geometry.cpp",
   "file": "/home/chesetti/projects/breakout/src/math/geometry.cpp"
 },
@@ -63,6 +81,12 @@
   "directory": "/home/chesetti/projects/breakout/build",
   "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/sdl/sdl_system.cpp.o -c /home/chesetti/projects/breakout/src/sdl/sdl_system.cpp",
   "file": "/home/chesetti/projects/breakout/src/sdl/sdl_system.cpp"
+},
+
+{
+  "directory": "/home/chesetti/projects/breakout/build",
+  "command": "/usr/bin/c++   -I/usr/include/SDL2 -I../include    -o CMakeFiles/breakout_lib.dir/src/video/camera.cpp.o -c /home/chesetti/projects/breakout/src/video/camera.cpp",
+  "file": "/home/chesetti/projects/breakout/src/video/camera.cpp"
 },
 
 {

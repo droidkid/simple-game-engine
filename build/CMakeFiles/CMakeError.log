@@ -285,3 +285,167 @@ collect2: error: ld returned 1 exit status
 ninja: build stopped: subcommand failed.
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_14768"
+[1/2] Building C object CMakeFiles/cmTC_14768.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_14768
+FAILED: cmTC_14768 
+: && /usr/bin/cc   -rdynamic CMakeFiles/cmTC_14768.dir/CheckSymbolExists.c.o  -o cmTC_14768   && :
+CMakeFiles/cmTC_14768.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+File /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_ef2d7"
+[1/2] Building C object CMakeFiles/cmTC_ef2d7.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_ef2d7
+FAILED: cmTC_ef2d7 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=pthread_create  -rdynamic CMakeFiles/cmTC_ef2d7.dir/CheckFunctionExists.c.o  -o cmTC_ef2d7  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_defb9"
+[1/2] Building C object CMakeFiles/cmTC_defb9.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_defb9
+FAILED: cmTC_defb9 
+: && /usr/bin/cc   -rdynamic CMakeFiles/cmTC_defb9.dir/CheckSymbolExists.c.o  -o cmTC_defb9   && :
+CMakeFiles/cmTC_defb9.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+File /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_813a2"
+[1/2] Building C object CMakeFiles/cmTC_813a2.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_813a2
+FAILED: cmTC_813a2 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=pthread_create  -rdynamic CMakeFiles/cmTC_813a2.dir/CheckFunctionExists.c.o  -o cmTC_813a2  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_3ceac"
+[1/2] Building C object CMakeFiles/cmTC_3ceac.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_3ceac
+FAILED: cmTC_3ceac 
+: && /usr/bin/cc   -rdynamic CMakeFiles/cmTC_3ceac.dir/CheckSymbolExists.c.o  -o cmTC_3ceac   && :
+CMakeFiles/cmTC_3ceac.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+File /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_02c4a"
+[1/2] Building C object CMakeFiles/cmTC_02c4a.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_02c4a
+FAILED: cmTC_02c4a 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=pthread_create  -rdynamic CMakeFiles/cmTC_02c4a.dir/CheckFunctionExists.c.o  -o cmTC_02c4a  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_f5ff1"
+[1/2] Building C object CMakeFiles/cmTC_f5ff1.dir/CheckSymbolExists.c.o
+[2/2] Linking C executable cmTC_f5ff1
+FAILED: cmTC_f5ff1 
+: && /usr/bin/cc   -rdynamic CMakeFiles/cmTC_f5ff1.dir/CheckSymbolExists.c.o  -o cmTC_f5ff1   && :
+CMakeFiles/cmTC_f5ff1.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+File /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/chesetti/projects/breakout/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/ninja" "cmTC_fb811"
+[1/2] Building C object CMakeFiles/cmTC_fb811.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_fb811
+FAILED: cmTC_fb811 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=pthread_create  -rdynamic CMakeFiles/cmTC_fb811.dir/CheckFunctionExists.c.o  -o cmTC_fb811  -lpthreads && :
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.
+
+

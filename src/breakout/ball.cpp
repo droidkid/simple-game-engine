@@ -4,18 +4,18 @@
 using namespace GameConstants;
 
 void BallPhysics::update() {
-    if ( x <= 0 && xvel < 0 ) {
-        xvel = -xvel;
+    if ( x <= 0 && velocity.x < 0 ) {
+        velocity.x = -velocity.x;
     }
-    if ( x + w >= SCREEN_WIDTH && xvel > 0 ) {
-        xvel = -xvel;
+    if ( x + w >= SCREEN_WIDTH && velocity.x > 0 ) {
+        velocity.x = -velocity.x;
     }
-    if ( y <= 0 && yvel < 0 ) {
-        yvel = -yvel;
+    if ( y <= 0 && velocity.y < 0 ) {
+        velocity.y = -velocity.y;
     }
-    if ( y >= SCREEN_HEIGHT && yvel > 0 ) {
-        yvel = -yvel;
+    if ( y >= SCREEN_HEIGHT && velocity.y > 0 ) {
+        velocity.y = -velocity.y;
     }
-    x += xvel;
-    y += yvel;
+    x += velocity.x;
+    y += velocity.y;
 }

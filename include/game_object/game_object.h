@@ -17,4 +17,8 @@ public:
     void draw(Canvas *canvas) {
         graphics -> draw(canvas);
     }
+    
+    PhysicsComponent* getPhysics() {
+        return physics;
+    }
 };

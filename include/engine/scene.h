@@ -12,6 +12,6 @@ public:
     GameObject **gameObjects;
     Scene();
     virtual void update(Input *input); 
+    virtual void draw(Canvas *canvas);
     void addGameObject(GameObject *object);
-    void draw(Canvas *canvas);
 };

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.6)
-project(breakout)
+project(simple-game-engine)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
 
@@ -14,13 +14,15 @@ include_directories(${SDL2_INCLUDE_DIR}
 
 
 file(GLOB src_files src/*.cpp src/*/*.cpp)
-add_library(breakout_lib ${src_files})
+add_library(game_engine_lib ${src_files})
 
 
-add_executable(breakout main.cpp)
-target_link_libraries(breakout breakout_lib)
-target_link_libraries(breakout ${SDL2_LIBRARY})
-target_link_libraries(breakout ${SDL2_IMAGE_LIBRARIES})
-target_link_libraries(breakout ${SDL2_TTF_LIBRARIES})
+add_executable(game main.cpp)
+target_link_libraries(game game_engine_lib)
+target_link_libraries(game ${SDL2_LIBRARY})
+target_link_libraries(game ${SDL2_IMAGE_LIBRARIES})
+target_link_libraries(game ${SDL2_TTF_LIBRARIES})
 
-install(TARGETS breakout RUNTIME DESTINATION bin)
+#install(TARGETS game RUNTIME DESTINATION bin)
+
+file(COPY "${PROJECT_SOURCE_DIR}/assets" DESTINATION "./")

@@ -20,7 +20,7 @@ class JumpGameScene : public Scene {
     int newBrickInterval = 3000;
     GameObject *minHeightBrick = NULL;
 
-    void update ( Input *input ) override {
+    void update ( Input *input ) {
         // This logic should be managed in a different game object.
         newBrickInterval -= MS_PER_UPDATE;
         if ( newBrickInterval < 0 ) {
@@ -40,7 +40,7 @@ class JumpGameScene : public Scene {
         camera->update ( gameObjects );
 
         // Call super class update.
-        Scene::update();
+        Scene::update(input);
     };
 
 public:
@@ -48,12 +48,6 @@ public:
         this->resources = resources;
         this->camera = new Camera();
         this->factory = new GameObjectFactory ( resources );
-
-        curIdx = 0;
-        gameObjects = new GameObject*[MAX_GAME_OBJECTS];
-        for ( int i=0; i<MAX_GAME_OBJECTS; i++ ) {
-            gameObjects[i] = NULL;
-        }
 
         ball = factory->createJumpBall ( 400, 400, 0.7 );
 

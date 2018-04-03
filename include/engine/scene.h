@@ -6,9 +6,12 @@
 
 class Scene {
     int curIdx;
-    GameObject **gameObjects;
 public:
-    void update(Input *input); 
+    // TODO(chesetti): Create a Object Manager or something of the sort.
+    // Exposing gameObjects as public doesn't seem safe.
+    GameObject **gameObjects;
+    Scene();
+    virtual void update(Input *input); 
     void addGameObject(GameObject *object);
     void draw(Canvas *canvas);
 };

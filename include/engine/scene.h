@@ -2,9 +2,13 @@
 
 #include "video/canvas.h"
 #include "input/input.h"
+#include "game_object/game_object.h"
 
 class Scene {
+    int curIdx;
+    GameObject **gameObjects;
 public:
-    virtual void update(Input *input) {}
-    virtual void draw(Canvas *canvas) {}
+    void update(Input *input); 
+    void addGameObject(GameObject *object);
+    void draw(Canvas *canvas);
 };

@@ -2,6 +2,9 @@
 
 #include "input/input_poller.h"
 
+#include <iostream>
+using namespace std;
+
 void InputPoller::pollInput(Input *input)
 {
     SDL_Event event;
@@ -9,12 +12,14 @@ void InputPoller::pollInput(Input *input)
         if (event.type == SDL_QUIT) {
             input->quit_event= true;
         }
-        if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_LEFT) {
-            input->left_key_down = true;
-        }
-        if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RIGHT) {
-            input->right_key_down = true;
-        }
     }
     SDL_GetMouseState(&(input->mouse_x), &(input->mouse_y));
+    
+    const Uint8 *state = SDL_GetKeyboardState(NULL);
+    if (state[SDL_SCANCODE_LEFT]) {
+        input->left_key_down = true;
+    }
+    if (state[SDL_SCANCODE_RIGHT]) {
+        input->right_key_down = true;
+    }
 }

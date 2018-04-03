@@ -7,9 +7,9 @@
 class Camera {
     
     GameObject *subject; // The GameObject we want to keep in the box.
-    Rect box; // The box we want our gameObject always want to be in.
+    int yLine;
     
 public:
     void update(GameObject **gameObjects);
-    void follow(GameObject *gameObject, Rect box);
+    void followYLine(GameObject *gameObject, int yLine);
 };

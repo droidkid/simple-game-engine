@@ -16,7 +16,7 @@ GameObject* GameObjectFactory::createJumpBall ( int x, int y, double maxYVel) {
 
 
 GameObject* GameObjectFactory::createTile ( int x, int y) {
-    TilePhysics *physics = new TilePhysics (Rect(x, y, 100, 20));
+    TilePhysics *physics = new TilePhysics (Rect(x, y, 50, 20));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( resources -> brickTextures[RED] );

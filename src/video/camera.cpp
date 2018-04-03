@@ -5,27 +5,29 @@
 using namespace GameConstants;
 
 void Camera::update(GameObject **gameObjects) {
-    if (isRectInside(subject->getPhysics()->getRect(), box)) {
-        return;
+    
+    int subY = subject->getPhysics()->y; 
+    
+    double diff = 0;
+    if (subY < yLine) {
+         diff = yLine - subY;
     }
     
-    Vec2d boxCenter = box.getCenter();
-    Vec2d subCenter = subject->getPhysics()->getRect().getCenter();
-    
-    Vec2d diff = boxCenter.diff(subCenter);
-    
+    GameObject *gameObject;
     for (int i=0; i < MAX_GAME_OBJECTS; i++) {
-        GameObject *curObject = gameObjects[i];
-        if (curObject == NULL || curObject->canBeDestroyed() || curObject->shouldNotMoveWithCamera()) {
+        gameObject = gameObjects[i];
+        if (gameObject == NULL || gameObject->canBeDestroyed() || gameObject->shouldNotMoveWithCamera()) {
             continue;
         }
-        curObject->getPhysics()->x += diff.x;
-        curObject->getPhysics()->y += diff.y;
+        gameObject->getPhysics()->y += diff;
     }
+    
+    
+    
 }
 
-void Camera::follow(GameObject *gameObject, Rect box) {
+void Camera::followYLine(GameObject *gameObject, int yLine) {
     this->subject = gameObject;
-    this->box = box;
+    this->yLine = yLine;
 }
 

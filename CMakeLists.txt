@@ -3,8 +3,14 @@ project(simple-game-engine)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
 
-find_package(SDL2 REQUIRED)
+if (WIN32)
+set(SDL2_PATH "${PROJECT_SOURCE_DIR}/dependencies/SDL2-2.0.5")
+set(SDL2_TTF_PATH "${PROJECT_SOURCE_DIR}/dependencies/SDL2_ttf-2.0.14")
+set(SDL2_IMAGE_PATH "${PROJECT_SOURCE_DIR}/dependencies/SDL2_image-2.0.1")
+endif(WIN32)
+
 find_package(SDL2_ttf REQUIRED)
+find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
 
 include_directories(${SDL2_INCLUDE_DIR} 

@@ -13,3 +13,8 @@ $ make
 $ ./game
 ```
 
+## Build instructions for Windows.
+
+Download [dependencies](https://drive.google.com/open?id=1SWtxt1CuLF3d8bRoZ09E5R6730bMoTJG) and place it under the top directory.
+
+Then run Cmake, generate the project using Visual Studio 15. Use Visual Studio to build the generated sln.

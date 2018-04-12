@@ -3,7 +3,7 @@
 #include "resources/resources.h"
 #include "game_object/game_object.h"
 #include "jump_game/game_object_factory.h"
-#include "video/camera.h"
+#include "jump_game/jump_camera.h"
 #include "game_constants.h"
 
 using namespace GameConstants;
@@ -11,7 +11,6 @@ using namespace GameConstants;
 class JumpGameScene : public Scene {
 
     Resources *resources;
-    Camera *camera;
 
     GameObjectFactory *factory;
     GameObject *ball;
@@ -44,7 +43,6 @@ class JumpGameScene : public Scene {
 public:
     JumpGameScene ( Resources *resources ) {
         this->resources = resources;
-        this->camera = new Camera();
         this->factory = new GameObjectFactory ( resources );
 
         ball = factory->createJumpBall ( 400, 400, 0.7 );
@@ -52,6 +50,6 @@ public:
         addGameObject ( ball );
         addGameObject ( factory->createGround () );
 
-        camera->followYLine ( ball , SCREEN_HEIGHT * 0.50 );
+        Scene::setCamera( new JumpCamera(ball, SCREEN_HEIGHT * 0.50));
     }
 };

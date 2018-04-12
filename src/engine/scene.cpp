@@ -9,6 +9,7 @@ using namespace GameConstants;
 Scene::Scene() {
     curIdx = 0;
     gameObjects = new GameObject*[MAX_GAME_OBJECTS];
+    camera = new Camera();
     for ( int i=0; i<MAX_GAME_OBJECTS; i++ ) {
         gameObjects[i] = NULL;
     }
@@ -24,6 +25,11 @@ void Scene::update(Input *input) {
         curObject->update ( input );
     }
     handleCollisions( gameObjects );
+}
+
+void Scene::setCamera(Camera *camera) {
+    // What about the old camera? Do we delete it?
+    this->camera = camera;
 }
 
 void Scene::addGameObject(GameObject *object) {

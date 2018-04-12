@@ -1,19 +1,12 @@
-#pragma once
-
+#include "engine/collisions.h"
 #include "game_constants.h"
-#include "game_object/game_object.h"
 #include "jump_game/game_object_types.h"
 #include "math/geometry.h"
-
-#include <iostream>
-using namespace std;
 
 using namespace GameConstants;
 using namespace GameObjectTypes;
 
-//TODO(chesetti): Abstract this into a class.
 void handleCollisions ( GameObject **gameObjects ) {
-    // TODO(chesetti): Optimize this.
     for ( int i=0; i < MAX_GAME_OBJECTS; i++ ) {
         for ( int j=i+1; j < MAX_GAME_OBJECTS; j++ ) {
             GameObject *obj1 = gameObjects[i];

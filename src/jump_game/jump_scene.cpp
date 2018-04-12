@@ -3,7 +3,6 @@
 #include "resources/resources.h"
 #include "game_object/game_object.h"
 #include "jump_game/game_object_factory.h"
-#include "jump_game/collisions.h"
 #include "video/camera.h"
 #include "game_constants.h"
 
@@ -36,7 +35,6 @@ class JumpGameScene : public Scene {
             }
             newBrickInterval = 1000;
         }
-        handleCollisions ( gameObjects );
         camera->update ( gameObjects );
 
         // Call super class update.

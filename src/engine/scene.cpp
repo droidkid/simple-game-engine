@@ -1,6 +1,7 @@
 #pragma once
 
 #include "engine/scene.h"
+#include "engine/collisions.h"
 #include "game_constants.h"
 
 using namespace GameConstants;
@@ -22,6 +23,7 @@ void Scene::update(Input *input) {
         }
         curObject->update ( input );
     }
+    handleCollisions( gameObjects );
 }
 
 void Scene::addGameObject(GameObject *object) {

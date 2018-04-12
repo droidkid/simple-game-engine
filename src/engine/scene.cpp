@@ -38,7 +38,7 @@ void Scene::addGameObject(GameObject *object) {
             return;
 
         } else if ( curObject->canBeDestroyed() ) {
-            // TODO(chesetti): Call curObject destructor
+            delete curObject;
             gameObjects[curIdx++] = object;
             return;
         }

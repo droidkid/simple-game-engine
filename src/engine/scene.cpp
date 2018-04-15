@@ -25,6 +25,7 @@ void Scene::update(Input *input) {
         curObject->update ( input );
     }
     handleCollisions( gameObjects );
+    camera->update( gameObjects );
 }
 
 void Scene::setCamera(Camera *camera) {

@@ -34,7 +34,6 @@ class JumpGameScene : public Scene {
             }
             newBrickInterval = 1000;
         }
-        camera->update ( gameObjects );
 
         // Call super class update.
         Scene::update(input);

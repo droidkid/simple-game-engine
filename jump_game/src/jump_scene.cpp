@@ -1,8 +1,7 @@
 #include "engine/scene.h"
-#include "math/util.h"
 #include "resources/resources.h"
 #include "game_object/game_object.h"
-#include "jump_game/game_object_factory.h"
+#include "game_object_factory.h"
 #include "game_constants.h"
 
 using namespace GameConstants;
@@ -18,6 +17,7 @@ class JumpGameScene : public Scene {
     GameObject *minHeightBrick = NULL;
 
     void update ( Input *input ) {
+        /*
         // This logic should be managed in a different game object.
         newBrickInterval -= MS_PER_UPDATE;
         if ( newBrickInterval < 0 ) {
@@ -33,6 +33,7 @@ class JumpGameScene : public Scene {
             }
             newBrickInterval = 1000;
         }
+        */
 
         // Call super class update.
         Scene::update(input);

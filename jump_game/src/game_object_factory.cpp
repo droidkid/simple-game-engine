@@ -1,6 +1,6 @@
-#include "jump_game/game_object_factory.h"
-#include "jump_game/physics.h"
-#include "jump_game/game_object_types.h"
+#include "game_object_factory.h"
+#include "physics.h"
+#include "game_object_types.h"
 #include "game_constants.h"
 
 using namespace GameObjectTypes;

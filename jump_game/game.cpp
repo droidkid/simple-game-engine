@@ -1,6 +1,6 @@
 #include "game.h"
 
-#include "jump_game/jump_scene.cpp"
+#include "src/jump_scene.cpp"
 
 Game::Game() {
     sdl_system = new SDLSystem();

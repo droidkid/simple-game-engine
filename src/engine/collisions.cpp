@@ -1,10 +1,8 @@
 #include "engine/collisions.h"
 #include "game_constants.h"
-#include "jump_game/game_object_types.h"
 #include "math/geometry.h"
 
 using namespace GameConstants;
-using namespace GameObjectTypes;
 
 void handleCollisions ( GameObject **gameObjects ) {
     for ( int i=0; i < MAX_GAME_OBJECTS; i++ ) {

@@ -2,14 +2,8 @@
 #include "game_object_types.h"
 #include "game_constants.h"
 
-#include <iostream>
-using namespace std;
-
 using namespace GameConstants;
 using namespace GameObjectTypes;
-
-#include <iostream>
-using namespace std;
 
 void JumpBallPhysics::update ( Input *input ) {
 
@@ -49,6 +43,7 @@ void JumpBallPhysics::onCollision ( Rect otherRect, Vec2d displ, int objectType 
     if ( objectType == GROUND ) {
         if ( velocity.y > 0 ) {
             velocity.y = -maxYVel;
+            notify(GameEvents::BALL_HIT_GROUND);
         }
     }
 

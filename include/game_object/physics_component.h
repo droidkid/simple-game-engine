@@ -2,8 +2,9 @@
 
 #include "math/geometry.h"
 #include "input/input.h"
+#include "game_object/subject.h"
 
-class PhysicsComponent {
+class PhysicsComponent : public Subject {
     
 public:
     double x, y;

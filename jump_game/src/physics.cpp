@@ -54,6 +54,7 @@ void JumpBallPhysics::onCollision ( Rect otherRect, Vec2d displ, int objectType 
         // Only reflect if colliding on way down.
         if ( velocity.y > 0 && cy > ry ) {
             velocity.y = -maxYVel;
+            notify(GameEvents::BALL_HIT_TILE);
         }
 
     }

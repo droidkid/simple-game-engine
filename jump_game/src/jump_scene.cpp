@@ -51,6 +51,9 @@ class JumpGameScene : public Scene, public Observer {
         if (eventType == GameEvents::BALL_HIT_GROUND) {
             cout<<"BALL FELL ON GROUND"<<endl;           
         }
+        if (eventType == GameEvents::BALL_HIT_TILE) {
+            cout<<"BALL HIT A TILE"<<endl;           
+        }
     }
 
 

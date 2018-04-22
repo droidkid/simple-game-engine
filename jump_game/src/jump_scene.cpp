@@ -21,24 +21,27 @@ class JumpGameScene : public Scene, public Observer {
     int newBrickInterval = 3000;
     GameObject *minHeightBrick = NULL;
 
+    int randomInRange(int lowerBound, int upperBound) {
+      int diff = upperBound - lowerBound + 1;
+      return rand() % diff + lowerBound;
+    }
+
     void update ( Input *input ) {
         // This logic should be managed in a different game object.
-        /*
         newBrickInterval -= MS_PER_UPDATE;
         if ( newBrickInterval < 0 ) {
             if ( minHeightBrick == NULL ) {
-                minHeightBrick = factory -> createTile ( random ( 0, SCREEN_WIDTH-30 ), SCREEN_HEIGHT - 200 );
+                minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH-30 ), SCREEN_HEIGHT - 200 );
                 addGameObject ( minHeightBrick );
             } else {
                 int curMinHeight = minHeightBrick->getPhysics()->y;
                 if ( curMinHeight >  0 ) {
-                    minHeightBrick = factory -> createTile ( random ( 0, SCREEN_WIDTH - 30 ), curMinHeight - 200 );
+                    minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH - 30 ), curMinHeight - 200 );
                     addGameObject ( minHeightBrick );
                 }
             }
             newBrickInterval = 1000;
         }
-        */
 
         // Call super class update.
         Scene::update(input);
@@ -49,6 +52,7 @@ class JumpGameScene : public Scene, public Observer {
             cout<<"BALL FELL ON GROUND"<<endl;           
         }
     }
+
 
 public:
     JumpGameScene ( Resources *resources ) {

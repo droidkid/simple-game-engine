@@ -1,5 +1,5 @@
 #include "engine/scene.h"
-#include "resources/resources.h"
+#include "sdl/asset_loader.h"
 #include "game_object/game_object.h"
 #include "game_object/observer.h"
 #include "game_object_types.h"
@@ -13,7 +13,7 @@ using namespace std;
 
 class JumpGameScene : public Scene, public Observer {
 
-    Resources *resources;
+    AssetLoader *assetLoader;
 
     GameObjectFactory *factory;
     GameObject *ball;
@@ -49,18 +49,17 @@ class JumpGameScene : public Scene, public Observer {
 
     void onEvent(int eventType) {
         if (eventType == GameEvents::BALL_HIT_GROUND) {
-            cout<<"BALL FELL ON GROUND"<<endl;           
+            cout<<"BALL FELL ON GROUND"<<endl;
         }
         if (eventType == GameEvents::BALL_HIT_TILE) {
-            cout<<"BALL HIT A TILE"<<endl;           
+            cout<<"BALL HIT A TILE"<<endl;
         }
     }
 
 
 public:
-    JumpGameScene ( Resources *resources ) {
-        this->resources = resources;
-        this->factory = new GameObjectFactory ( resources );
+    JumpGameScene ( AssetLoader *assetLoader ) {
+        this->factory = new GameObjectFactory ( assetLoader );
 
         ball = factory->createJumpBall ( 400, 400, 0.7 );
         ball->getPhysics()->addObserver(this);

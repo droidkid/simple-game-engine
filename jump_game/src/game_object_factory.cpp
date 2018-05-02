@@ -8,6 +8,7 @@ using namespace GameConstants;
 GameObjectFactory::GameObjectFactory(AssetLoader *assetLoader) {
   assetLoader->loadPNGintoTexture("assets/puzzlepack/png/element_red_rectangle.png", &redBrickTexture);
   assetLoader->loadPNGintoTexture("assets/puzzlepack/png/ballBlue.png", &blueBallTexture);
+  assetLoader->loadPNGintoTexture("assets/sky.png", &backgroundTexture);
 }
 
 GameObject* GameObjectFactory::createJumpBall ( int x, int y, double maxYVel) {
@@ -43,4 +44,8 @@ GameObject* GameObjectFactory::createGround() {
     GameObject *gameObject = new GameObject(GROUND, physics, graphics);
     gameObject->setShouldNotMoveWithCamera(true);
     return gameObject;
+}
+
+SDL_Texture* GameObjectFactory::getBackgroundTexture() {
+  return backgroundTexture;
 }

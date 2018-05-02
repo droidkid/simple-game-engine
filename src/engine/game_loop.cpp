@@ -28,7 +28,7 @@ void GameLoop::runLoop ( Scene *scene ) {
             lag_ms -= MS_PER_UPDATE;
         }
 
-        scene->draw ( canvas );
+        scene->drawScene ( canvas );
         quit_event_received = input->quit_event;
     }
 }

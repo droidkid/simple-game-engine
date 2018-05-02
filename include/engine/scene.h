@@ -11,8 +11,9 @@ public:
     GameObject **gameObjects;
     Camera *camera;
     Scene();
-    virtual void update(Input *input); 
+    virtual void update(Input *input);
     virtual void draw(Canvas *canvas);
+    void drawScene(Canvas *canvas);
     void addGameObject(GameObject *object);
     void setCamera(Camera *camera);
 };

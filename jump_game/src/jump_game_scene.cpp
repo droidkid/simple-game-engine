@@ -38,6 +38,11 @@ void JumpGameScene::onEvent(int eventType) {
   }
 }
 
+void JumpGameScene::draw(Canvas *canvas) {
+  canvas->drawTexture(factory->getBackgroundTexture(), {0,0,SCREEN_WIDTH, SCREEN_HEIGHT});
+  Scene::draw(canvas);
+}
+
 
 JumpGameScene::JumpGameScene ( AssetLoader *assetLoader ) {
   this->factory = new GameObjectFactory ( assetLoader );

@@ -57,7 +57,6 @@ void Scene::addGameObject(GameObject *object) {
 }
 
 void Scene::draw(Canvas *canvas) {
-    canvas->clearScreen();
     GameObject *curObject;
     for ( int i=0; i<MAX_GAME_OBJECTS; i++ ) {
         curObject = gameObjects[i];
@@ -66,5 +65,10 @@ void Scene::draw(Canvas *canvas) {
         }
         curObject->draw ( canvas );
     }
+}
+
+void Scene::drawScene(Canvas *canvas) {
+    canvas->clearScreen();
+    draw(canvas);
     canvas->renderScreen();
 }

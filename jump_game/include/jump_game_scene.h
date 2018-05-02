@@ -16,4 +16,5 @@ class JumpGameScene : public Observer, public Scene {
     JumpGameScene(AssetLoader *assetLoader);
     void update (Input *input);
     void onEvent (int eventType);
+    void draw(Canvas *canvas);
 };

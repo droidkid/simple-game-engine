@@ -1,4 +1,7 @@
 #include "jump_game_scene.h"
+#include "game_constants.h"
+
+using namespace GameConstants;
 
 int randomInRange(int lowerBound, int upperBound) {
   int diff = upperBound - lowerBound + 1;

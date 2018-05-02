@@ -1,6 +1,5 @@
 #include "game_object_factory.h"
 #include "physics.h"
-#include "game_object_types.h"
 #include "game_constants.h"
 
 using namespace GameObjectTypes;

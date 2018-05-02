@@ -1,7 +1,7 @@
 #include "engine/game.h"
 
-Game::Game() {
-    sdlSystem = new SDLSystem();
+Game::Game(int width, int height) {
+    sdlSystem = new SDLSystem(width, height);
     assetLoader = new AssetLoader(sdlSystem);
     inputPoller = new InputPoller();
     canvas = new Canvas(sdlSystem);

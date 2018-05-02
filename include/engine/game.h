@@ -15,7 +15,7 @@ class Game {
     Canvas *canvas;
 
   public:
-    Game();
+    Game(int width, int height);
     AssetLoader* getAssetLoader();
     int runScene(Scene *scene);
     virtual int start() {};

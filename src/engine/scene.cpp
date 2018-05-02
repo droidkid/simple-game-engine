@@ -1,10 +1,10 @@
 #pragma once
 
-#include "engine/scene.h"
+#include "engine/game_engine_constants.h"
 #include "engine/collisions.h"
-#include "game_constants.h"
+#include "engine/scene.h"
 
-using namespace GameConstants;
+using namespace GameEngineConstants;
 
 Scene::Scene() {
     curIdx = 0;

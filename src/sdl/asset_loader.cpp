@@ -1,6 +1,5 @@
 #include "sdl/asset_loader.h"
-#include "game_constants.h"
-
+#include "engine/game_engine_constants.h"
 
 // Class to keep initialize and retrieve all resources (Textures, Fonts, Audio etc).
 

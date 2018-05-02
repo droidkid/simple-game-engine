@@ -3,9 +3,7 @@
 #include "sdl/asset_loader.h"
 #include "game_object/game_object.h"
 #include "game_object/observer.h"
-#include "game_object_types.h"
 #include "game_object_factory.h"
-#include "game_constants.h"
 
 class JumpGameScene : public Observer, public Scene {
     AssetLoader *assetLoader;

@@ -1,14 +1,10 @@
 #include "sdl/sdl_system.h"
-#include "game_constants.h"
-
-using namespace GameConstants;
-
 
 // Initializes SDL libraries.
 
-SDLSystem::SDLSystem() {
+SDLSystem::SDLSystem(int width, int height) {
     initLibs();
-    initVideo();
+    createWindow(width, height);
 }
 
 void SDLSystem::initLibs() {
@@ -33,11 +29,11 @@ void SDLSystem::initLibs() {
 
 }
 
-void SDLSystem::initVideo() {
+void SDLSystem::createWindow(int width, int height) {
 
     // Create Window and Renderer.
-    SDL_CreateWindowAndRenderer ( SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN, &window, &renderer );
-    SDL_RenderSetLogicalSize ( renderer, SCREEN_WIDTH, SCREEN_HEIGHT );
+    SDL_CreateWindowAndRenderer ( width, height, SDL_WINDOW_SHOWN, &window, &renderer );
+    SDL_RenderSetLogicalSize ( renderer, width, height );
 
     // Disable Cursor.
     SDL_ShowCursor(SDL_DISABLE);

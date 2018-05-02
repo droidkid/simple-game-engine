@@ -1,7 +1,7 @@
 #include "video/camera.h"
-#include "game_constants.h"
+#include "engine/game_engine_constants.h"
 
-using namespace GameConstants;
+using namespace GameEngineConstants;
 
 void Camera::update(GameObject **gameObjects) {
     int subY = subject->getPhysics()->y;
@@ -25,4 +25,3 @@ void Camera::followYLine(GameObject *subject, int yLine) {
     this->yLine = yLine;
     this->subject = subject;
 }
-

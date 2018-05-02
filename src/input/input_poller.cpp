@@ -1,9 +1,5 @@
 #include <SDL.h>
-
 #include "input/input_poller.h"
-
-#include <iostream>
-using namespace std;
 
 void InputPoller::pollInput(Input *input)
 {
@@ -14,7 +10,7 @@ void InputPoller::pollInput(Input *input)
         }
     }
     SDL_GetMouseState(&(input->mouse_x), &(input->mouse_y));
-    
+
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     if (state[SDL_SCANCODE_LEFT]) {
         input->left_key_down = true;

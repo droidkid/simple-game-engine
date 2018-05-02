@@ -8,11 +8,11 @@ class SDLSystem
 	SDL_Window *window = NULL;
 	SDL_Renderer *renderer = NULL;
 
-	void initVideo();
 	void initLibs();
+	void createWindow(int width, int height);
 
 public:
-	SDLSystem();
+	SDLSystem(int width, int height);
 	~SDLSystem();
 	SDL_Renderer* getRenderer();
 };

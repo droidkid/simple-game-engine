@@ -1,5 +1,5 @@
 #include "physics.h"
-#include "game_object_types.h"
+#include "engine/game_engine_constants.h"
 #include "game_constants.h"
 
 using namespace GameConstants;
@@ -18,7 +18,7 @@ void JumpBallPhysics::update ( Input *input ) {
 
     x += ( velocity.x * MS_PER_UPDATE + 0.5 * ( accel.x ) + MS_PER_UPDATE*MS_PER_UPDATE/1e6 ) + offset;
     y += ( velocity.y * MS_PER_UPDATE + 0.5 * ( accel.y ) + MS_PER_UPDATE*MS_PER_UPDATE/1e6 );
-    
+
     if (velocity.y > 0 && velocity.y > maxYVel) {
         velocity.y = maxYVel;
     }
@@ -28,7 +28,7 @@ void JumpBallPhysics::update ( Input *input ) {
 
     velocity.x += accel.x * ( MS_PER_UPDATE );
     velocity.y += accel.y * MS_PER_UPDATE;
-    
+
     if (x > SCREEN_WIDTH) {
         x = 0;
     }
@@ -50,7 +50,7 @@ void JumpBallPhysics::onCollision ( Rect otherRect, Vec2d displ, int objectType 
     if ( objectType == TILE) {
         double cy = ( ballRect.y + ballRect.h );
         double ry = ( otherRect.y + 0.25 * otherRect.h );
-        
+
         // Only reflect if colliding on way down.
         if ( velocity.y > 0 && cy > ry ) {
             velocity.y = -maxYVel;

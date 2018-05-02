@@ -2,8 +2,6 @@
 #include "game_object/physics_component.h"
 #include <SDL.h>
 #include <SDL_image.h>
-#include <iostream>
-using namespace std;
 
 // Holds texture and does drawing of sprite.
 
@@ -25,9 +23,7 @@ void SimpleGraphicsComponent::draw ( Canvas *canvas ) {
     boundingBox.y = ( int ) ( y );
     boundingBox.w = ( int ) ( w );
     boundingBox.h = ( int ) ( h );
-    
+
 
     canvas->drawTexture ( texture, &boundingBox );
 }
-
-

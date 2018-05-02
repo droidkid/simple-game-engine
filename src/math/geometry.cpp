@@ -1,9 +1,6 @@
 #include "math/geometry.h"
 #include <math.h>
 
-#include <iostream>
-using namespace std;
-
 int isPointInside(Vec2d v, Rect r) {
     if (v.x < r.x) return 0;
     if (v.x > r.x + r.w) return 0;
@@ -43,4 +40,3 @@ Vec2d getDisplacementVector(Rect r1, Rect r2) {
 
 	return Vec2d(xDisp, yDisp);
 }
-

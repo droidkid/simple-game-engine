@@ -1,9 +1,9 @@
 #include <SDL.h>
 
-#include "game_constants.h"
+#include "engine/game_engine_constants.h"
 #include "engine/game_loop.h"
 
-using namespace GameConstants;
+using namespace GameEngineConstants;
 
 GameLoop::GameLoop ( InputPoller *input_poller, Canvas *canvas ) :
     input_poller ( input_poller ), canvas ( canvas ) {

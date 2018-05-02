@@ -1,8 +1,8 @@
 #include "engine/collisions.h"
-#include "game_constants.h"
+#include "engine/game_engine_constants.h"
 #include "math/geometry.h"
 
-using namespace GameConstants;
+using namespace GameEngineConstants;
 
 void handleCollisions ( GameObject **gameObjects ) {
     for ( int i=0; i < MAX_GAME_OBJECTS; i++ ) {
@@ -18,7 +18,7 @@ void handleCollisions ( GameObject **gameObjects ) {
             if ( !isRectIntersect ( r1, r2 ) ) {
                 continue;
             }
-            
+
             obj1->getPhysics()->onCollision(r2, Vec2d(0,0) /* Displacement Vector */, obj2->getObjectType());
             obj2->getPhysics()->onCollision(r1, Vec2d(0,0) /* Displacement Vector */, obj1->getObjectType());
 

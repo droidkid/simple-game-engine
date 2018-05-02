@@ -1,6 +1,6 @@
-#include "game.h"
+#include "jump_game.h"
 
 int main(int argc, char **argv) {
-    Game game;
-    return game.run(argc, argv);
+    JumpGame game;
+    return game.start();
 }

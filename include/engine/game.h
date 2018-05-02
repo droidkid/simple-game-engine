@@ -5,14 +5,18 @@
 #include "input/input_poller.h"
 #include "engine/game_loop.h"
 #include "video/canvas.h"
+#include "engine/scene.h"
 
 class Game {
-    SDLSystem *sdl_system;
-    InputPoller *input_poller;
-    GameLoop *game_loop;
+    SDLSystem *sdlSystem;
+    InputPoller *inputPoller;
+    GameLoop *gameLoop;
     AssetLoader *assetLoader;
     Canvas *canvas;
-public:
+
+  public:
     Game();
-    int run(int argc, char **argv);
+    AssetLoader* getAssetLoader();
+    int runScene(Scene *scene);
+    virtual int start() {};
 };

@@ -6,9 +6,11 @@ using namespace GameObjectTypes;
 using namespace GameConstants;
 
 GameObjectFactory::GameObjectFactory(AssetLoader *assetLoader) {
+  this->assetLoader = assetLoader;
   assetLoader->loadPNGintoTexture("assets/brick.png", &brickTexture);
   assetLoader->loadPNGintoTexture("assets/ball.png", &ballTexture);
   assetLoader->loadPNGintoTexture("assets/sky.png", &backgroundTexture);
+  assetLoader->loadTTFfont("assets/fonts/kenpixel.ttf", 15, &font);
 }
 
 GameObject* GameObjectFactory::createJumpBall ( int x, int y, double maxYVel) {
@@ -44,6 +46,10 @@ GameObject* GameObjectFactory::createGround() {
     GameObject *gameObject = new GameObject(GROUND, physics, graphics);
     gameObject->setShouldNotMoveWithCamera(true);
     return gameObject;
+}
+
+TTF_Font* GameObjectFactory::getFont() {
+  return font;
 }
 
 SDL_Texture* GameObjectFactory::getBackgroundTexture() {

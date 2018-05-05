@@ -40,6 +40,7 @@ void JumpGameScene::onEvent(int eventType) {
 
 void JumpGameScene::draw(Canvas *canvas) {
   canvas->drawTexture(factory->getBackgroundTexture(), {0,0,SCREEN_WIDTH, SCREEN_HEIGHT});
+  canvas->drawText("JUMP GAME!", SCREEN_WIDTH/2, SCREEN_HEIGHT/2, factory->getFont(), {255, 255, 255});
   Scene::draw(canvas);
 }
 

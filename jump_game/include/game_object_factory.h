@@ -9,6 +9,7 @@ class GameObjectFactory {
     SDL_Texture *ballTexture;
     SDL_Texture *brickTexture;
     SDL_Texture *backgroundTexture;
+    TTF_Font *font;
 
 public:
     GameObjectFactory ( AssetLoader *assetLoader );
@@ -17,4 +18,5 @@ public:
     GameObject* createTile ( int x, int y, int w, int h );
     GameObject* createGround ();
     SDL_Texture* getBackgroundTexture();
+    TTF_Font* getFont();
 };

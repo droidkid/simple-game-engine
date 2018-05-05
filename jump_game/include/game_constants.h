@@ -18,3 +18,9 @@ namespace GameConstants {
 	const int SCREEN_HEIGHT =  400;
 	const int FONT_SIZE_PT = 28;
 }
+
+namespace GameState {
+	const int PRE_START = 1;
+	const int IN_GAME = 2;
+	const int GAME_OVER = 3;
+}

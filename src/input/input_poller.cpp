@@ -18,4 +18,7 @@ void InputPoller::pollInput(Input *input)
     if (state[SDL_SCANCODE_RIGHT]) {
         input->right_key_down = true;
     }
+    if (state[SDL_SCANCODE_RETURN]) {
+        input->enter_pressed = true;
+    }
 }

@@ -11,6 +11,7 @@ class JumpGameScene : public Observer, public Scene {
     GameObject *ball;
     int newBrickInterval = 3000;
     GameObject *minHeightBrick = NULL;
+    int curGameState;
 
   public:
     JumpGameScene(AssetLoader *assetLoader);

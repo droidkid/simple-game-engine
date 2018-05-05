@@ -2,6 +2,7 @@
 #include "game_constants.h"
 
 using namespace GameConstants;
+using namespace GameState;
 
 int randomInRange(int lowerBound, int upperBound) {
   int diff = upperBound - lowerBound + 1;
@@ -9,24 +10,31 @@ int randomInRange(int lowerBound, int upperBound) {
 }
 
 void JumpGameScene::update ( Input *input ) {
-  // This logic should be managed in a different game object.
-  newBrickInterval -= MS_PER_UPDATE;
-  if ( newBrickInterval < 0 ) {
-    if ( minHeightBrick == NULL ) {
-      minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH-30 ), SCREEN_HEIGHT - 200 );
-      addGameObject ( minHeightBrick );
-    } else {
-      int curMinHeight = minHeightBrick->getPhysics()->y;
-      if ( curMinHeight >  0 ) {
-        minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH - 30 ), curMinHeight - 200 );
-        addGameObject ( minHeightBrick );
+  if (curGameState == PRE_START) {
+      if (input->enter_pressed) {
+        curGameState = IN_GAME;
       }
-    }
-    newBrickInterval = 1000;
   }
 
-  // Call super class update.
-  Scene::update(input);
+  else if (curGameState == IN_GAME) {
+    newBrickInterval -= MS_PER_UPDATE;
+    if ( newBrickInterval < 0 ) {
+      if ( minHeightBrick == NULL ) {
+        minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH-30 ), SCREEN_HEIGHT - 200 );
+        addGameObject ( minHeightBrick );
+      } else {
+        int curMinHeight = minHeightBrick->getPhysics()->y;
+        if ( curMinHeight >  0 ) {
+          minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH - 30 ), curMinHeight - 200 );
+          addGameObject ( minHeightBrick );
+        }
+      }
+      newBrickInterval = 1000;
+    }
+    // Call super class update.
+    Scene::update(input);
+  }
+  
 };
 
 void JumpGameScene::onEvent(int eventType) {
@@ -40,8 +48,13 @@ void JumpGameScene::onEvent(int eventType) {
 
 void JumpGameScene::draw(Canvas *canvas) {
   canvas->drawTexture(factory->getBackgroundTexture(), {0,0,SCREEN_WIDTH, SCREEN_HEIGHT});
-  canvas->drawText("JUMP GAME!", SCREEN_WIDTH/2, SCREEN_HEIGHT/2, factory->getFont(), {0, 0, 0});
-  Scene::draw(canvas);
+  if (curGameState == PRE_START) {
+    canvas->drawText("JUMP GAME!", SCREEN_WIDTH/2, SCREEN_HEIGHT/2, factory->getFont(), {0, 0, 0});
+    canvas->drawText("PRESSS ENTER TO START.", SCREEN_WIDTH/2-100, SCREEN_HEIGHT/2 + 20, factory->getFont(), {0, 0, 0});
+  }
+  if (curGameState == IN_GAME) {
+    Scene::draw(canvas);
+  }
 }
 
 
@@ -53,6 +66,8 @@ JumpGameScene::JumpGameScene ( AssetLoader *assetLoader ) {
 
   addGameObject ( ball );
   addGameObject ( factory->createGround () );
+
+  curGameState = PRE_START;
 
   this->camera->followYLine(ball, SCREEN_HEIGHT * 0.25);
 }

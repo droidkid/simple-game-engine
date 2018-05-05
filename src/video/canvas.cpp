@@ -16,7 +16,7 @@ void Canvas::renderScreen()
 
 void Canvas::drawText(char *text, int x, int y, TTF_Font *font, SDL_Color textColor)
 {
-    SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, textColor);
+  SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, textColor);
 	SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, textSurface);
 
 	SDL_Rect boundingBox;

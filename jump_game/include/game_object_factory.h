@@ -6,8 +6,8 @@
 
 class GameObjectFactory {
     AssetLoader *assetLoader;
-    SDL_Texture *blueBallTexture;
-    SDL_Texture *redBrickTexture;
+    SDL_Texture *ballTexture;
+    SDL_Texture *brickTexture;
     SDL_Texture *backgroundTexture;
 
 public:

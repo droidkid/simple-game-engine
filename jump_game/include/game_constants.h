@@ -14,7 +14,7 @@ namespace GameEvents {
 }
 
 namespace GameConstants {
-	const int SCREEN_WIDTH = 504;
-	const int SCREEN_HEIGHT =  896;
+	const int SCREEN_WIDTH = 225;
+	const int SCREEN_HEIGHT =  400;
 	const int FONT_SIZE_PT = 28;
 }

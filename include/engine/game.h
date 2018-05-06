@@ -18,5 +18,5 @@ class Game {
     Game(int width, int height);
     AssetLoader* getAssetLoader();
     int runScene(Scene *scene);
-    virtual int start() {};
+    virtual int start() { return 0; }
 };

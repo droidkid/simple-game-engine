@@ -1,6 +1,9 @@
 #include "jump_game_scene.h"
 #include "game_constants.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+
 using namespace GameConstants;
 using namespace GameState;
 
@@ -84,7 +87,7 @@ void JumpGameScene::draw(Canvas *canvas) {
   }
   if (curGameState == GAME_OVER) {
     sprintf(scoreText, "SCORE: %d", tilesJumped);
-    canvas->drawText(scoreText, SCREEN_WIDTH - 150, 40, factory->getFont(), {0, 0, 0});
+	canvas->drawText(scoreText, SCREEN_WIDTH - 150, 40, factory->getFont(), {0, 0, 0});
     canvas->drawText("GAME OVER!", SCREEN_WIDTH/2, SCREEN_HEIGHT/2, factory->getFont(), {0, 0, 0});
   }
 }

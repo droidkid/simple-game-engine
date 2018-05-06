@@ -9,8 +9,8 @@ void handleCollisions ( GameObject **gameObjects ) {
         for ( int j=i+1; j < MAX_GAME_OBJECTS; j++ ) {
             GameObject *obj1 = gameObjects[i];
             GameObject *obj2 = gameObjects[j];
-            if ( obj1 == NULL || obj1->canBeDestroyed() ) continue;
-            if ( obj2 == NULL || obj2->canBeDestroyed() ) continue;
+            if ( obj1 == NULL || obj1->isDestroyed() ) continue;
+            if ( obj2 == NULL || obj2->isDestroyed() ) continue;
 
             Rect r1 = obj1->getPhysics()->getRect();
             Rect r2 = obj2->getPhysics()->getRect();

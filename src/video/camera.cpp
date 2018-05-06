@@ -14,7 +14,7 @@ void Camera::update(GameObject **gameObjects) {
     GameObject *gameObject;
     for (int i=0; i < MAX_GAME_OBJECTS; i++) {
         gameObject = gameObjects[i];
-        if (gameObject == NULL || gameObject->canBeDestroyed() || gameObject->shouldNotMoveWithCamera()) {
+        if (gameObject == NULL || gameObject->isDestroyed() || gameObject->shouldNotMoveWithCamera()) {
             continue;
         }
         gameObject->getPhysics()->y += diff;

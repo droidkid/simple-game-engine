@@ -19,7 +19,7 @@ void Scene::update(Input *input) {
     GameObject *curObject;
     for ( int i=0; i<MAX_GAME_OBJECTS; i++ ) {
         curObject = gameObjects[i];
-        if ( curObject == NULL || curObject->canBeDestroyed() ) {
+        if ( curObject == NULL || curObject->isDestroyed() ) {
             continue;
         }
         curObject->update ( input );
@@ -46,7 +46,7 @@ void Scene::addGameObject(GameObject *object) {
             gameObjects[curIdx++] = object;
             return;
 
-        } else if ( curObject->canBeDestroyed() ) {
+        } else if ( curObject->isDestroyed() ) {
             delete curObject;
             gameObjects[curIdx++] = object;
             return;
@@ -60,10 +60,21 @@ void Scene::draw(Canvas *canvas) {
     GameObject *curObject;
     for ( int i=0; i<MAX_GAME_OBJECTS; i++ ) {
         curObject = gameObjects[i];
-        if ( curObject == NULL || curObject->canBeDestroyed() ) {
+        if ( curObject == NULL || curObject->isDestroyed() ) {
             continue;
         }
         curObject->draw ( canvas );
+    }
+}
+
+void Scene::destroyAllGameObjects() {
+    GameObject *curObject;
+    for ( int i=0; i<MAX_GAME_OBJECTS; i++ ) {
+        curObject = gameObjects[i];
+        if ( curObject == NULL || curObject->isDestroyed() ) {
+            continue;
+        }
+        curObject -> destroy();
     }
 }
 

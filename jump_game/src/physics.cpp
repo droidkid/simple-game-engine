@@ -63,6 +63,6 @@ void JumpBallPhysics::onCollision ( Rect otherRect, Vec2d displ, int objectType 
 void TilePhysics::update ( Input *input ) {
     Rect r = getRect();
     if ( r.x > SCREEN_WIDTH || r.y > SCREEN_HEIGHT ) {
-        canBeDestroyed = true;
+        isDestroyed = true;
     }
 }

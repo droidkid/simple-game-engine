@@ -5,12 +5,12 @@
 #include "game_object/subject.h"
 
 class PhysicsComponent : public Subject {
-    
+
 public:
     double x, y;
     double w, h;
     Vec2d velocity;
-    bool canBeDestroyed = false;
+    bool isDestroyed = false;
     PhysicsComponent() {};
     PhysicsComponent(double x, double y, double w, double h) : x(x), y(y), w(w), h(h) {};
     PhysicsComponent(Rect rect, Vec2d velocity) : x(rect.x), y(rect.y), w(rect.w), h(rect.h), velocity(velocity) {};

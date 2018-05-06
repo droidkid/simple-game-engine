@@ -15,5 +15,6 @@ public:
     virtual void draw(Canvas *canvas);
     void drawScene(Canvas *canvas);
     void addGameObject(GameObject *object);
+    void destroyAllGameObjects();
     void setCamera(Camera *camera);
 };

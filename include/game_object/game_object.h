@@ -15,27 +15,31 @@ public:
     void update(Input *input) {
         physics -> update(input);
     }
-    
+
     void draw(Canvas *canvas) {
         graphics -> draw(canvas);
     }
-    
+
     PhysicsComponent* getPhysics() {
         return physics;
     }
-    
-    int canBeDestroyed() {
-        return physics->canBeDestroyed;
+
+    int isDestroyed() {
+        return physics->isDestroyed;
     }
-    
+
+    void destroy() {
+        physics->isDestroyed = true;
+    }
+
     int getObjectType() {
         return objectType;
     }
-    
+
     int shouldNotMoveWithCamera() {
         return notMoveWithCamera;
     }
-    
+
     void setShouldNotMoveWithCamera(int val) {
         notMoveWithCamera = val;
     }

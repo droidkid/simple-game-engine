@@ -17,7 +17,7 @@ public:
     PhysicsComponent(double x, double y, double w, double h) : x(x), y(y), w(w), h(h) {};
     PhysicsComponent(Rect rect, Vec2d velocity) : x(rect.x), y(rect.y), w(rect.w), h(rect.h), velocity(velocity) {};
     virtual void update(Input *input) {};
-    virtual void onCollision(Rect collidingBody, Vec2d displacementVector, int objectType) {};
+    virtual void onCollision(PhysicsComponent *otherPhysics, int objectType) {};
     Rect getRect() { return Rect(x, y, w, h); };
     ~PhysicsComponent() {};
 };

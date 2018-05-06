@@ -19,8 +19,8 @@ void handleCollisions ( GameObject **gameObjects ) {
                 continue;
             }
 
-            obj1->getPhysics()->onCollision(r2, Vec2d(0,0) /* Displacement Vector */, obj2->getObjectType());
-            obj2->getPhysics()->onCollision(r1, Vec2d(0,0) /* Displacement Vector */, obj1->getObjectType());
+            obj1->getPhysics()->onCollision(obj2->getPhysics(), obj2->getObjectType());
+            obj2->getPhysics()->onCollision(obj1->getPhysics(), obj1->getObjectType());
 
         }
     }

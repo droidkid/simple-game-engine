@@ -8,14 +8,16 @@ class JumpBallPhysics : public PhysicsComponent {
 public:
     Vec2d accel;
     double maxYVel;
-    JumpBallPhysics ( Rect rect, Vec2d velocity, Vec2d accel) : PhysicsComponent ( rect, velocity ), accel(accel), maxYVel(fabs(velocity.y)) {}
+    JumpBallPhysics ( Rect rect, Vec2d velocity, Vec2d accel) :
+      PhysicsComponent ( rect, velocity ), accel(accel), maxYVel(fabs(velocity.y)) {}
     void update(Input *input);
-    void onCollision ( Rect otherRect, Vec2d displ, int objectType );
+    void onCollision ( PhysicsComponent *otherPhysics, int objectType );
 };
 
 class TilePhysics : public PhysicsComponent {
 public:
+    bool isHitOnce;
     TilePhysics ( Rect rect ) : PhysicsComponent (rect, Vec2d(0,0)) {}
     void update(Input *input);
-    void onCollision(Rect collidingBody, Vec2d displacementVector, int objectType) {};
+    void onCollision(PhysicsComponent *otherPhysics, int objectType) {}
 };

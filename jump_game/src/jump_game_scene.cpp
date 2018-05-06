@@ -20,7 +20,10 @@ void JumpGameScene::update ( Input *input ) {
       addGameObject ( ball );
       addGameObject ( factory->createGround () );
       this->camera->followYLine(ball, SCREEN_HEIGHT * 0.25);
-      
+
+      tilesJumped = 0;
+      newBrickInterval = 0;
+
       curGameState = IN_GAME;
     }
   }
@@ -31,11 +34,13 @@ void JumpGameScene::update ( Input *input ) {
       if ( minHeightBrick == NULL ) {
         minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH-30 ), SCREEN_HEIGHT - 200 );
         addGameObject ( minHeightBrick );
+        minHeightBrick -> getPhysics()->addObserver(this);
       } else {
         int curMinHeight = minHeightBrick->getPhysics()->y;
         if ( curMinHeight >  0 ) {
           minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH - 30 ), curMinHeight - 200 );
           addGameObject ( minHeightBrick );
+          minHeightBrick -> getPhysics()->addObserver(this);
         }
       }
       newBrickInterval = DURATION_BETWEEN_BRICKS;
@@ -60,8 +65,8 @@ void JumpGameScene::onEvent(int eventType) {
     curGameState = GAME_OVER;
     gameOverInterval = DURATION_GAME_OVER_SCREEN;
   }
-  if (eventType == GameEvents::BALL_HIT_TILE) {
-    //Stub
+  if (eventType == GameEvents::TILE_HIT_FIRST_TIME) {
+    tilesJumped++;
   }
 }
 
@@ -73,9 +78,13 @@ void JumpGameScene::draw(Canvas *canvas) {
     canvas->drawText("ARROW KEYS TO CONTROL.", SCREEN_WIDTH/2-100, SCREEN_HEIGHT/2 + 40, factory->getFont(), {0, 0, 0});
   }
   if (curGameState == IN_GAME) {
+    sprintf(scoreText, "SCORE: %d", tilesJumped);
+    canvas->drawText(scoreText, SCREEN_WIDTH - 150, 40, factory->getFont(), {0, 0, 0});
     Scene::draw(canvas);
   }
   if (curGameState == GAME_OVER) {
+    sprintf(scoreText, "SCORE: %d", tilesJumped);
+    canvas->drawText(scoreText, SCREEN_WIDTH - 150, 40, factory->getFont(), {0, 0, 0});
     canvas->drawText("GAME OVER!", SCREEN_WIDTH/2, SCREEN_HEIGHT/2, factory->getFont(), {0, 0, 0});
   }
 }

@@ -11,6 +11,7 @@ namespace GameEvents {
     const int BALL_HIT_GROUND = 1;
     const int BALL_HIT_TILE = 2;
     const int BALL_HIT_ENEMY = 3;
+		const int TILE_HIT_FIRST_TIME = 4;
 }
 
 namespace GameConstants {

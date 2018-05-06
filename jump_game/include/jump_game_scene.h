@@ -13,6 +13,8 @@ class JumpGameScene : public Observer, public Scene {
     int gameOverInterval;
     GameObject *minHeightBrick = NULL;
     int curGameState;
+    int tilesJumped;
+    char scoreText[30];
 
   public:
     JumpGameScene(AssetLoader *assetLoader);

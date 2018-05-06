@@ -5,12 +5,12 @@
 #include "engine/scene.h"
 
 class GameLoop {
-    int current_tick_ms;
-    int lag_ms;
-    InputPoller *input_poller;
+    int currentTickMs;
+    int lagMs;
+    InputPoller *inputPoller;
     Canvas *canvas;
 
 public:
-    GameLoop ( InputPoller *input_poller, Canvas *canvas );
+    GameLoop ( InputPoller *inputPoller, Canvas *canvas );
     void runLoop ( Scene *scene );
 };

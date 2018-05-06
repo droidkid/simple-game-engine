@@ -6,19 +6,19 @@ void InputPoller::pollInput(Input *input)
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         if (event.type == SDL_QUIT) {
-            input->quit_event= true;
+            input->quitEvent= true;
         }
     }
-    SDL_GetMouseState(&(input->mouse_x), &(input->mouse_y));
+    SDL_GetMouseState(&(input->mouseX), &(input->mouseY));
 
     const Uint8 *state = SDL_GetKeyboardState(NULL);
     if (state[SDL_SCANCODE_LEFT]) {
-        input->left_key_down = true;
+        input->leftKeyDown = true;
     }
     if (state[SDL_SCANCODE_RIGHT]) {
-        input->right_key_down = true;
+        input->rightKeyDown = true;
     }
     if (state[SDL_SCANCODE_RETURN]) {
-        input->enter_pressed = true;
+        input->enterPressed = true;
     }
 }

@@ -9,10 +9,10 @@ void JumpBallPhysics::update ( Input *input ) {
 
     double offset = 0.0;
 
-    if ( input -> left_key_down ) {
+    if ( input -> leftKeyDown ) {
         offset -= 5;
     }
-    if ( input -> right_key_down ) {
+    if ( input -> rightKeyDown ) {
         offset += 5;
     }
 

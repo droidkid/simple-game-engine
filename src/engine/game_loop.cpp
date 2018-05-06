@@ -5,30 +5,30 @@
 
 using namespace GameEngineConstants;
 
-GameLoop::GameLoop ( InputPoller *input_poller, Canvas *canvas ) :
-    input_poller ( input_poller ), canvas ( canvas ) {
-    lag_ms = 0;
-    current_tick_ms = 0;
+GameLoop::GameLoop ( InputPoller *inputPoller, Canvas *canvas ) :
+    inputPoller ( inputPoller ), canvas ( canvas ) {
+    lagMs = 0;
+    currentTickMs = 0;
 }
 
 
 void GameLoop::runLoop ( Scene *scene ) {
-    bool quit_event_received = false;
-    current_tick_ms = SDL_GetTicks();
+    bool quitEventReceived = false;
+    currentTickMs = SDL_GetTicks();
 
-    while ( !quit_event_received ) {
+    while ( !quitEventReceived ) {
         Input *input = new Input();
-        input_poller->pollInput(input);
+        inputPoller->pollInput(input);
 
-        lag_ms += SDL_GetTicks() - current_tick_ms;
-        current_tick_ms = SDL_GetTicks();
+        lagMs += SDL_GetTicks() - currentTickMs;
+        currentTickMs = SDL_GetTicks();
 
-        while ( lag_ms >= MS_PER_UPDATE ) {
+        while ( lagMs >= MS_PER_UPDATE ) {
             scene->update(input);
-            lag_ms -= MS_PER_UPDATE;
+            lagMs -= MS_PER_UPDATE;
         }
 
         scene->drawScene ( canvas );
-        quit_event_received = input->quit_event;
+        quitEventReceived = input->quitEvent;
     }
 }

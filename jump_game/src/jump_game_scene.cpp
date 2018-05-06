@@ -11,7 +11,7 @@ int randomInRange(int lowerBound, int upperBound) {
 
 void JumpGameScene::update ( Input *input ) {
   if (curGameState == PRE_START) {
-    if (input->enter_pressed) {
+    if (input->enterPressed) {
       ball = factory->createJumpBall ( SCREEN_WIDTH/2, SCREEN_HEIGHT - 60, 0.7 );
       ball->getPhysics()->addObserver(this);
 

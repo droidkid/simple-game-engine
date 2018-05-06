@@ -23,8 +23,8 @@ GameObject* GameObjectFactory::createJumpBall ( int x, int y) {
 }
 
 
-GameObject* GameObjectFactory::createTile ( int x, int y) {
-    TilePhysics *physics = new TilePhysics (Rect(x, y, TILE_WIDTH, TILE_HEIGHT));
+GameObject* GameObjectFactory::createTile ( int x, int y, double xVel) {
+    TilePhysics *physics = new TilePhysics (Rect(x, y, TILE_WIDTH, TILE_HEIGHT) , Vec2d(xVel, 0));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( brickTexture );
@@ -32,7 +32,7 @@ GameObject* GameObjectFactory::createTile ( int x, int y) {
 }
 
 GameObject* GameObjectFactory::createTile( int x, int y, int w, int h) {
-    TilePhysics *physics = new TilePhysics (Rect(x, y, w, h));
+    TilePhysics *physics = new TilePhysics (Rect(x, y, w, h) , Vec2d (0, 0));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( brickTexture );
@@ -40,7 +40,7 @@ GameObject* GameObjectFactory::createTile( int x, int y, int w, int h) {
 }
 
 GameObject* GameObjectFactory::createGround() {
-    TilePhysics *physics = new TilePhysics (Rect(0, SCREEN_HEIGHT-10, SCREEN_WIDTH, 100));
+    TilePhysics *physics = new TilePhysics (Rect(0, SCREEN_HEIGHT-10, SCREEN_WIDTH, 100), Vec2d(0,0));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     GameObject *gameObject = new GameObject(GROUND, physics, graphics);

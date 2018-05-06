@@ -17,7 +17,7 @@ public:
 class TilePhysics : public PhysicsComponent {
 public:
     bool isHitOnce;
-    TilePhysics ( Rect rect ) : PhysicsComponent (rect, Vec2d(0,0)), isHitOnce(false) {}
+	TilePhysics ( Rect rect, Vec2d vel ) : PhysicsComponent (rect, vel), isHitOnce(false) {}
     void update(Input *input);
     void onCollision(PhysicsComponent *otherPhysics, int objectType) {}
 };

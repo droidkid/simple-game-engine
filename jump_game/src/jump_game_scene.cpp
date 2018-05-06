@@ -17,7 +17,7 @@ void JumpGameScene::update ( Input *input ) {
     if (input->enterPressed) {
       ball = factory->createJumpBall ( SCREEN_WIDTH/2, SCREEN_HEIGHT - 80);
       ball->getPhysics()->addObserver(this);
-      minHeightBrick = factory -> createTile(SCREEN_WIDTH/2, SCREEN_HEIGHT - 40);
+      minHeightBrick = factory -> createTile(SCREEN_WIDTH/2, SCREEN_HEIGHT - 40 , 0);
 
       addGameObject( minHeightBrick );
       addGameObject ( ball );
@@ -34,17 +34,12 @@ void JumpGameScene::update ( Input *input ) {
   else if (curGameState == IN_GAME) {
     newBrickInterval -= MS_PER_UPDATE;
     if ( newBrickInterval < 0 ) {
-      if ( minHeightBrick == NULL ) {
-        minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH-30 ), SCREEN_HEIGHT - 200 );
+      int curMinHeight = minHeightBrick->getPhysics()->y;
+      if ( curMinHeight >  0 ) {
+        minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH - 30 ), 
+									curMinHeight - 200  , randomInRange(0, 3) / 10.0);
         addGameObject ( minHeightBrick );
         minHeightBrick -> getPhysics()->addObserver(this);
-      } else {
-        int curMinHeight = minHeightBrick->getPhysics()->y;
-        if ( curMinHeight >  0 ) {
-          minHeightBrick = factory -> createTile ( randomInRange ( 0, SCREEN_WIDTH - 30 ), curMinHeight - 200 );
-          addGameObject ( minHeightBrick );
-          minHeightBrick -> getPhysics()->addObserver(this);
-        }
       }
       newBrickInterval = DURATION_BETWEEN_BRICKS;
     }

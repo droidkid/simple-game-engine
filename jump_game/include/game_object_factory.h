@@ -14,7 +14,7 @@ class GameObjectFactory {
 public:
     GameObjectFactory ( AssetLoader *assetLoader );
     GameObject* createJumpBall ( int x, int y );
-    GameObject* createTile ( int x, int y );
+    GameObject* createTile ( int x, int y, double xVel );
     GameObject* createTile ( int x, int y, int w, int h );
     GameObject* createGround ();
     SDL_Texture* getBackgroundTexture();

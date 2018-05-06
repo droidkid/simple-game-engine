@@ -5,9 +5,6 @@
 using namespace GameConstants;
 using namespace GameObjectTypes;
 
-#include <iostream>
-using namespace std;
-
 void JumpBallPhysics::update ( Input *input ) {
 
   double offset = 0.0;
@@ -71,6 +68,15 @@ void JumpBallPhysics::onCollision ( PhysicsComponent *otherPhysics, int objectTy
 
 void TilePhysics::update ( Input *input ) {
   Rect r = getRect();
+  x += (velocity.x * MS_PER_UPDATE);
+  if (x < 0) {
+	x = 0;
+	velocity.x = -velocity.x;
+  }
+  else if (x > SCREEN_WIDTH - TILE_WIDTH) {
+	x = SCREEN_WIDTH - TILE_WIDTH;
+	velocity.x = -velocity.x;
+  }
   if ( r.x > SCREEN_WIDTH || r.y > SCREEN_HEIGHT ) {
     isDestroyed = true;
   }

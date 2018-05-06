@@ -13,7 +13,7 @@ class GameObjectFactory {
 
 public:
     GameObjectFactory ( AssetLoader *assetLoader );
-    GameObject* createJumpBall ( int x, int y, double maxYVel );
+    GameObject* createJumpBall ( int x, int y );
     GameObject* createTile ( int x, int y );
     GameObject* createTile ( int x, int y, int w, int h );
     GameObject* createGround ();

@@ -10,11 +10,12 @@ GameObjectFactory::GameObjectFactory(AssetLoader *assetLoader) {
   assetLoader->loadPNGintoTexture("assets/brick.png", &brickTexture);
   assetLoader->loadPNGintoTexture("assets/ball.png", &ballTexture);
   assetLoader->loadPNGintoTexture("assets/sky.png", &backgroundTexture);
-  assetLoader->loadTTFfont("assets/fonts/kenpixel.ttf", 15, &font);
+  assetLoader->loadTTFfont("assets/fonts/kenpixel.ttf", FONT_SIZE_PT, &font);
 }
 
-GameObject* GameObjectFactory::createJumpBall ( int x, int y, double maxYVel) {
-    JumpBallPhysics *physics = new JumpBallPhysics ( Rect(x, y, 30, 30) , Vec2d(0, maxYVel), Vec2d(0, 0.001));
+GameObject* GameObjectFactory::createJumpBall ( int x, int y) {
+    JumpBallPhysics *physics = new JumpBallPhysics ( Rect(x, y, 2 * BALL_RADIUS, 2 * BALL_RADIUS),
+                                                     Vec2d(0, MAX_BALL_VEL), Vec2d(0, MAX_BALL_ACCEL));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( ballTexture );
@@ -23,7 +24,7 @@ GameObject* GameObjectFactory::createJumpBall ( int x, int y, double maxYVel) {
 
 
 GameObject* GameObjectFactory::createTile ( int x, int y) {
-    TilePhysics *physics = new TilePhysics (Rect(x, y, 50, 20));
+    TilePhysics *physics = new TilePhysics (Rect(x, y, TILE_WIDTH, TILE_HEIGHT));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
     graphics->setTexture ( brickTexture );
@@ -42,7 +43,6 @@ GameObject* GameObjectFactory::createGround() {
     TilePhysics *physics = new TilePhysics (Rect(0, SCREEN_HEIGHT-10, SCREEN_WIDTH, 100));
     SimpleGraphicsComponent *graphics = new SimpleGraphicsComponent();
     graphics -> setPhysics ( physics );
-    graphics->setTexture ( brickTexture );
     GameObject *gameObject = new GameObject(GROUND, physics, graphics);
     gameObject->setShouldNotMoveWithCamera(true);
     return gameObject;

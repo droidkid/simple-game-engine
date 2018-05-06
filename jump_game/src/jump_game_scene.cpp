@@ -12,14 +12,15 @@ int randomInRange(int lowerBound, int upperBound) {
 void JumpGameScene::update ( Input *input ) {
   if (curGameState == PRE_START) {
     if (input->enterPressed) {
-      ball = factory->createJumpBall ( SCREEN_WIDTH/2, SCREEN_HEIGHT - 60, 0.7 );
+      ball = factory->createJumpBall ( SCREEN_WIDTH/2, SCREEN_HEIGHT - 80);
       ball->getPhysics()->addObserver(this);
+      minHeightBrick = factory -> createTile(SCREEN_WIDTH/2, SCREEN_HEIGHT - 40);
 
+      addGameObject( minHeightBrick );
       addGameObject ( ball );
       addGameObject ( factory->createGround () );
-      minHeightBrick = factory -> createTile(SCREEN_WIDTH/2, SCREEN_HEIGHT - 40);
-      addGameObject( minHeightBrick );
       this->camera->followYLine(ball, SCREEN_HEIGHT * 0.25);
+      
       curGameState = IN_GAME;
     }
   }
@@ -37,7 +38,7 @@ void JumpGameScene::update ( Input *input ) {
           addGameObject ( minHeightBrick );
         }
       }
-      newBrickInterval = 1000;
+      newBrickInterval = DURATION_BETWEEN_BRICKS;
     }
     // Call super class update.
     Scene::update(input);
@@ -47,7 +48,7 @@ void JumpGameScene::update ( Input *input ) {
     gameOverInterval -= MS_PER_UPDATE;
     if (gameOverInterval < 0) {
       destroyAllGameObjects();
-      gameOverInterval = 5000;
+      gameOverInterval = DURATION_GAME_OVER_SCREEN;
       curGameState = PRE_START;
     }
   }
@@ -57,6 +58,7 @@ void JumpGameScene::update ( Input *input ) {
 void JumpGameScene::onEvent(int eventType) {
   if (eventType == GameEvents::BALL_HIT_GROUND) {
     curGameState = GAME_OVER;
+    gameOverInterval = DURATION_GAME_OVER_SCREEN;
   }
   if (eventType == GameEvents::BALL_HIT_TILE) {
     //Stub

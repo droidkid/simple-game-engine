@@ -10,6 +10,7 @@ class JumpGameScene : public Observer, public Scene {
     GameObjectFactory *factory;
     GameObject *ball;
     int newBrickInterval = 3000;
+    int gameOverInterval = 5000;
     GameObject *minHeightBrick = NULL;
     int curGameState;
 

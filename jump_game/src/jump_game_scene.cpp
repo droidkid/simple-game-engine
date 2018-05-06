@@ -11,9 +11,16 @@ int randomInRange(int lowerBound, int upperBound) {
 
 void JumpGameScene::update ( Input *input ) {
   if (curGameState == PRE_START) {
-      if (input->enter_pressed) {
-        curGameState = IN_GAME;
-      }
+    if (input->enter_pressed) {
+      curGameState = IN_GAME;
+      ball = factory->createJumpBall ( SCREEN_WIDTH/2, SCREEN_HEIGHT - 60, 0.7 );
+      ball->getPhysics()->addObserver(this);
+
+      addGameObject ( ball );
+      addGameObject ( factory->createGround () );
+      addGameObject ( factory -> createTile(SCREEN_WIDTH/2, SCREEN_HEIGHT - 40));
+      this->camera->followYLine(ball, SCREEN_HEIGHT * 0.25);
+    }
   }
 
   else if (curGameState == IN_GAME) {
@@ -34,12 +41,20 @@ void JumpGameScene::update ( Input *input ) {
     // Call super class update.
     Scene::update(input);
   }
-  
+
+  else if (curGameState == GAME_OVER) {
+    gameOverInterval -= MS_PER_UPDATE;
+    if (gameOverInterval < 0) {
+      gameOverInterval = 5000;
+      curGameState = PRE_START;
+    }
+  }
+
 };
 
 void JumpGameScene::onEvent(int eventType) {
   if (eventType == GameEvents::BALL_HIT_GROUND) {
-    //Stub
+    curGameState = GAME_OVER;
   }
   if (eventType == GameEvents::BALL_HIT_TILE) {
     //Stub
@@ -51,23 +66,18 @@ void JumpGameScene::draw(Canvas *canvas) {
   if (curGameState == PRE_START) {
     canvas->drawText("JUMP GAME!", SCREEN_WIDTH/2, SCREEN_HEIGHT/2, factory->getFont(), {0, 0, 0});
     canvas->drawText("PRESSS ENTER TO START.", SCREEN_WIDTH/2-100, SCREEN_HEIGHT/2 + 20, factory->getFont(), {0, 0, 0});
+    canvas->drawText("ARROW KEYS TO CONTROL.", SCREEN_WIDTH/2-100, SCREEN_HEIGHT/2 + 40, factory->getFont(), {0, 0, 0});
   }
   if (curGameState == IN_GAME) {
     Scene::draw(canvas);
+  }
+  if (curGameState == GAME_OVER) {
+    canvas->drawText("GAME OVER!", SCREEN_WIDTH/2, SCREEN_HEIGHT/2, factory->getFont(), {0, 0, 0});
   }
 }
 
 
 JumpGameScene::JumpGameScene ( AssetLoader *assetLoader ) {
   this->factory = new GameObjectFactory ( assetLoader );
-
-  ball = factory->createJumpBall ( 400, 400, 0.7 );
-  ball->getPhysics()->addObserver(this);
-
-  addGameObject ( ball );
-  addGameObject ( factory->createGround () );
-
   curGameState = PRE_START;
-
-  this->camera->followYLine(ball, SCREEN_HEIGHT * 0.25);
 }
